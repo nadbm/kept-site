@@ -1,0 +1,1105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Kept for Mac</title>
+<meta name="description" content="Your place for the documents you can't afford to lose. Kept files household documents on your Mac, reads their dates and puts renewals on your calendar.">
+<link rel="icon" type="image/svg+xml" href="kept-logo.svg">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..800;1,400..800&amp;family=Plus+Jakarta+Sans:wght@400..700&amp;family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@500&amp;display=swap">
+<style>
+/* Layout: one left-aligned column, 1180px max. Big app windows carry the page; a rubber date stamp is the one loud motif. */
+:root{
+  --paper:#F2F0EA; --card:#FDFCF9; --ink:#1C1B18; --mut:#62645F; --line:#DDDAD0; --wash:#E9E6DE;
+  --acc:#2F3E46; --acc-text:#33464F; --on-acc:#F7F5EF; --stamp:#33464F; --stage:#2F3E46; --on-stage:#EEECE6; --dot:rgba(47,62,70,.11); --tick:rgba(47,62,70,.32); --washa:rgba(70,74,70,.06);
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .24  0 0 0 0 .19  0 0 0 0 .10  0 0 0 0.42 -0.2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url%28%23n%29'/%3E%3C/svg%3E"); --mottle:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='800'%3E%3Cfilter id='n' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.006' numOctaves='3' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .24  0 0 0 0 .19  0 0 0 0 .10  0 0 0 0.0 0.0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url%28%23n%29'/%3E%3C/svg%3E"); --fibre:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='500'%3E%3Cfilter id='n' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.015 .7' numOctaves='2' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .24  0 0 0 0 .19  0 0 0 0 .10  0 0 0 0.0 0.0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url%28%23n%29'/%3E%3C/svg%3E");
+  --ok:#2F7D4F; --tint:#E3E9EA; --shadow:0 1px 2px rgba(0,0,0,.04),0 24px 60px rgba(0,0,0,.10);
+  --display:"Playfair Display","Iowan Old Style",Georgia,serif; --body:"Plus Jakarta Sans","Helvetica Neue",Arial,sans-serif; --mono:"Geist Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --paper:#191919; --card:#202020; --ink:#EDEDEC; --mut:#9B9A97; --line:#353535; --wash:#1E1E1E;
+  --acc:#4F6A77; --acc-text:#B4CCD6; --on-acc:#FFFFFF; --stamp:#B4CCD6; --stage:#222D33; --on-stage:#E6E8E6; --dot:rgba(237,237,236,.07); --tick:rgba(237,237,236,.22); --washa:rgba(255,255,255,.03);
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.252 -0.12'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url%28%23n%29'/%3E%3C/svg%3E"); --mottle:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='800'%3E%3Cfilter id='n' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.006' numOctaves='3' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.0 0.0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url%28%23n%29'/%3E%3C/svg%3E"); --fibre:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='500'%3E%3Cfilter id='n' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.015 .7' numOctaves='2' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.0 0.0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url%28%23n%29'/%3E%3C/svg%3E");
+  --ok:#6FD3A0; --tint:#1F282C; --shadow:0 30px 80px rgba(0,0,0,.5),0 0 0 1px #353535; color-scheme:dark } }
+:root[data-theme="dark"]{
+  --paper:#191919; --card:#202020; --ink:#EDEDEC; --mut:#9B9A97; --line:#353535; --wash:#1E1E1E;
+  --acc:#4F6A77; --acc-text:#B4CCD6; --on-acc:#FFFFFF; --stamp:#B4CCD6; --stage:#222D33; --on-stage:#E6E8E6; --dot:rgba(237,237,236,.07); --tick:rgba(237,237,236,.22); --washa:rgba(255,255,255,.03);
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.252 -0.12'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url%28%23n%29'/%3E%3C/svg%3E"); --mottle:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='800'%3E%3Cfilter id='n' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.006' numOctaves='3' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.0 0.0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url%28%23n%29'/%3E%3C/svg%3E"); --fibre:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='500'%3E%3Cfilter id='n' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.015 .7' numOctaves='2' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.0 0.0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url%28%23n%29'/%3E%3C/svg%3E");
+  --ok:#6FD3A0; --tint:#1F282C; --shadow:0 30px 80px rgba(0,0,0,.5),0 0 0 1px #353535; color-scheme:dark }
+html{scroll-behavior:smooth}
+body{background:var(--grain),var(--paper);color:var(--ink);font:17px/1.55 var(--body);font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+.wrap{max-width:1212px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3,p{margin:0}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;letter-spacing:-.015em;line-height:1.06}
+h1{font-size:clamp(40px,5.6vw,76px);font-weight:600;letter-spacing:-.022em;line-height:1.02}
+h2{font-size:clamp(32px,4.2vw,54px);font-weight:600}
+h3{font-family:var(--body);font-size:23px;font-weight:600;line-height:1.2}
+.lead{font-size:clamp(18px,1.7vw,21px);color:var(--mut);max-width:60ch}
+.eyebrow{font:700 12px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--acc-text)}
+a{color:var(--acc-text)}
+:focus-visible{outline:3px solid var(--acc-text);outline-offset:3px;border-radius:6px}
+.btn{display:inline-flex;align-items:center;gap:10px;height:54px;padding:0 26px;border-radius:27px;background:var(--acc);color:var(--on-acc);font-weight:700;font-size:16px;text-decoration:none;border:0;cursor:pointer;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}
+.btn.sm{height:40px;padding:0 18px;font-size:14px;border-radius:20px}
+.btn svg{width:18px;height:18px;fill:currentColor}
+
+nav{display:flex;align-items:center;gap:28px;padding-block:20px}
+.logo{display:flex;align-items:center;gap:10px;font:700 25px/1 var(--display);letter-spacing:-.03em;color:var(--ink);text-decoration:none}
+.logo i{width:30px;height:30px;border-radius:10px;background:var(--acc);display:grid;place-items:center}
+.logo .mark{width:34px;height:34px;flex:none}
+.logo i svg{width:18px;height:18px;fill:none;stroke:#fff;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+nav .links{display:flex;gap:26px;margin-left:auto}
+nav .links a{color:var(--mut);text-decoration:none;font-size:15px;font-weight:500}
+nav .links a:hover{color:var(--ink)}
+.theme{width:36px;height:36px;flex:none;display:grid;place-items:center;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;padding:0;margin-right:-14px}
+.theme:hover{border-color:var(--mut)}
+.theme svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;grid-area:1/1}
+.theme .sun{display:none}
+.theme[aria-pressed="true"] .sun{display:block}.theme[aria-pressed="true"] .moon{display:none}
+
+/* Hero: centred, on a dotted ground with soft washes in the app's category colours; file-divider tabs rise behind the window. */
+/* Hero: centred serif headline on warm paper; the app sits on a deep green stage with real-coloured file tabs behind it. */
+.top{position:relative;background:linear-gradient(to bottom,color-mix(in srgb,var(--card) 55%,transparent),transparent 420px)}
+.top::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(to right,var(--dot) 1px,transparent 1px),linear-gradient(to bottom,var(--dot) 1px,transparent 1px);background-size:72px 72px;background-position:50% 0;
+  -webkit-mask-image:radial-gradient(ellipse 36% 310px at 50% 330px,transparent 60%,#000 100%),linear-gradient(to bottom,#000 0,#000 72%,transparent 98%);
+  mask-image:radial-gradient(ellipse 36% 310px at 50% 330px,transparent 60%,#000 100%),linear-gradient(to bottom,#000 0,#000 72%,transparent 98%);
+  -webkit-mask-composite:source-in;mask-composite:intersect}
+.top::after{content:"";position:absolute;top:0;right:0;width:46%;height:14px;pointer-events:none;opacity:.9;
+  background-image:linear-gradient(to right,var(--tick) 1px,transparent 1px),linear-gradient(to right,var(--tick) 1px,transparent 1px);background-size:72px 14px,9px 6px;background-repeat:repeat-x;background-position:100% 0,100% 0;
+  -webkit-mask-image:linear-gradient(to left,#000 40%,transparent);mask-image:linear-gradient(to left,#000 40%,transparent)}
+@media (max-width:700px){.top::before{background-size:48px 48px;-webkit-mask-image:linear-gradient(to bottom,#000 0,transparent 100px,transparent 60%,#000 72%,transparent 98%);mask-image:linear-gradient(to bottom,#000 0,transparent 100px,transparent 60%,#000 72%,transparent 98%)}}
+.top>.wrap{position:relative;padding-bottom:clamp(40px,6vw,72px)}
+.hero .btn.ghost{background:var(--card)}
+.hero{padding-block:clamp(40px,6.5vw,92px) 0;position:relative;text-align:center}
+.hero>h1{max-width:13.5em;margin-inline:auto;font-size:clamp(35px,4.93vw,67px);font-weight:550;letter-spacing:-.022em;line-height:1.04}
+.hero>h1 em{display:block;font-style:italic;font-weight:inherit;color:var(--acc-text);letter-spacing:-.015em}
+.hero .lead{margin:26px auto 0;max-width:50ch;color:color-mix(in srgb,var(--ink) 74%,var(--paper))}
+.hero .cta{justify-content:center}
+.hero>.fine{margin-top:16px}
+.stage{margin-top:clamp(40px,6vw,76px);border-radius:clamp(18px,2.6vw,34px);padding:clamp(20px,4.4vw,60px) clamp(12px,4.4vw,60px);
+  background:var(--grain),radial-gradient(90% 70% at 50% 0%,rgba(255,255,255,.13),transparent 70%),var(--stage);text-align:left}
+/* stitching: a soft thread sewn just inside the edge of the stage; round-ended stitches, slightly uneven, low contrast */
+.stage{position:relative}
+.stage>*{position:relative;z-index:1}
+.stage>.stitch{position:absolute;z-index:0;inset:clamp(7px,1vw,13px);width:calc(100% - 2*clamp(7px,1vw,13px));height:calc(100% - 2*clamp(7px,1vw,13px));overflow:visible;pointer-events:none}
+.stitch rect{fill:none;stroke:var(--on-stage);stroke-opacity:.3;stroke-width:1.3;stroke-linecap:round;stroke-dasharray:6.5 5.5;rx:calc(clamp(18px,2.6vw,34px) - clamp(7px,1vw,13px))}
+.stage .heroshot{margin-top:0}
+.stage .types{color:color-mix(in srgb,var(--on-stage) 78%,transparent);max-width:52em;padding-top:clamp(20px,2.6vw,32px);font-size:15px}
+.filetabs{display:flex;justify-content:center;align-items:flex-end;gap:clamp(4px,.8vw,10px);padding-inline:clamp(10px,5%,70px);height:46px;position:relative}
+.filetabs span{flex:1 1 0;min-width:0;max-width:150px;height:38px;border-radius:10px 10px 0 0;padding:10px 13px 0;font:600 13px/1 var(--body);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:rgba(28,27,24,.8);background:var(--c)}
+.filetabs span:nth-child(1){--c:#E9C46A}.filetabs span:nth-child(2){--c:#F0A58F}.filetabs span:nth-child(3){--c:#A9CBE8}.filetabs span:nth-child(4){--c:#C9D6A3}
+.filetabs span:nth-child(5){--c:#E6DCC3}.filetabs span:nth-child(6){--c:#C3B6EC}.filetabs span:nth-child(7){--c:#EBB0C2}
+.filetabs span:nth-child(odd){height:46px}
+.filetabs span:nth-child(3n){height:42px}
+.hero .shot{z-index:1}
+.shot:has(.d-win.dark){background:#191919}
+/* the hero window dissolves into the stage so the first look is the top of the list, not all of it */
+.hero .shot{-webkit-mask-image:linear-gradient(to bottom,#000 38%,transparent 92%);mask-image:linear-gradient(to bottom,#000 38%,transparent 92%);box-shadow:none;border-bottom:0;margin-bottom:calc(-1*clamp(20px,4.4vw,60px) - 4%)}
+.stage{overflow:hidden}
+/* Motion: the hero settles in on load, the file tabs rise out of the drawer, and sections ease in as they scroll into view. */
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes tabup{from{transform:translateY(110%)}60%{transform:translateY(-7%)}to{transform:none}}
+.hero>h1,.hero>.lead,.hero>.cta,.hero>.fine,.hero>.stage{animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
+.hero>.lead{animation-delay:.1s}.hero>.cta{animation-delay:.2s}.hero>.fine{animation-delay:.28s}.hero>.stage{animation-delay:.36s;animation-duration:1s}
+.filetabs span{animation:tabup .7s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(.95s + var(--i)*.08s)}
+.filetabs span:nth-child(1){--i:0}.filetabs span:nth-child(2){--i:1}.filetabs span:nth-child(3){--i:2}.filetabs span:nth-child(4){--i:3}.filetabs span:nth-child(5){--i:4}.filetabs span:nth-child(6){--i:5}.filetabs span:nth-child(7){--i:6}
+.filetabs span{transition:transform .25s cubic-bezier(.2,.8,.2,1)}
+.stage:hover .filetabs span{transform:translateY(-4px)}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.hero>*,.filetabs span{animation:none}.filetabs span{transition:none}.reveal{opacity:1;transform:none;transition:none}}
+
+@media (max-width:700px){.filetabs{height:34px}.filetabs span,.filetabs span:nth-child(odd),.filetabs span:nth-child(3n){height:26px;padding:7px 7px 0;font-size:10.5px;border-radius:7px 7px 0 0}.filetabs span:nth-child(odd){height:34px}.filetabs span:nth-child(n+6){display:none}}
+.cta{display:flex;flex-wrap:wrap;align-items:center;gap:14px 18px;margin-top:30px}
+.fine{font-size:14px;color:var(--mut)}
+.stamp{display:inline-block;font:700 clamp(13px,1.5vw,20px)/1 var(--mono);letter-spacing:.12em;color:var(--stamp);border:3px double var(--stamp);border-radius:8px;padding:.6em .8em;transform:rotate(-7deg);white-space:nowrap}
+.hero>h1 .stamp{vertical-align:middle;margin-left:.9em;position:relative;top:-.5em;letter-spacing:.12em}
+.stamp.ok{color:var(--ok);border-color:var(--ok);transform:rotate(4deg)}
+@media (max-width:700px){.hero>h1 .stamp{display:block;width:max-content;margin:18px 0 0 4px;top:0}}
+@media (max-width:760px){nav .links{display:none}nav .theme{margin-left:auto}}
+.heroshot{margin-top:clamp(36px,5vw,64px);position:relative}
+.toast{position:absolute;right:20px;bottom:20px;width:min(380px,80%);background:var(--card);color:var(--ink);border-radius:18px;box-shadow:var(--shadow);padding:14px 16px;display:flex;gap:12px;align-items:flex-start;font-size:14px;line-height:1.35;z-index:2}
+.toast .cal{width:40px;height:40px;flex:none;border-radius:10px;background:#fff;border:1px solid #DBDEEC;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1;color:#1F2A3A}
+.toast .cal small{font-size:8px;font-weight:700;color:#C0281F;letter-spacing:.06em}
+.toast .cal b{font-size:18px}
+.toast span{color:var(--mut);display:block}
+.only-sm{display:none}
+@media (max-width:700px){.only-sm{display:block}.toast.only-sm{display:flex}.not-sm{display:none}.toast{position:static;width:auto;margin-top:14px;font-size:13.5px}}
+
+.shot{position:relative;aspect-ratio:1280/800;max-width:100%;border-radius:calc(var(--r,14px)*var(--s,.9));overflow:hidden;box-shadow:var(--shadow);background:#fff}
+.shot-in{position:absolute;left:0;top:0;width:1280px;height:800px;transform-origin:0 0;transform:scale(var(--s,.9)) translate(var(--x,0),var(--y,0));pointer-events:none;user-select:none}
+
+.types{margin:0 auto;padding-block:0;max-width:46em;text-align:center;color:var(--mut);font-size:16px;line-height:1.6}
+.types span{font:500 14px/1 var(--body);color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:18px;padding:9px 14px}
+.types b{font:600 14px/1.3 var(--body);color:var(--mut);margin-right:6px}
+
+section{padding-block:clamp(64px,9vw,128px) 0}
+#how{margin-top:clamp(64px,9vw,128px);padding-block:clamp(56px,7vw,96px);background:var(--washa);box-shadow:0 0 0 100vmax var(--washa);clip-path:inset(0 -100vmax)}
+.head2{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:20px clamp(24px,4vw,64px);align-items:end}
+.head2 h2{max-width:15em}
+.head2 .lead{font-size:17px;padding-bottom:6px}
+@media (max-width:860px){.head2{grid-template-columns:minmax(0,1fr)}}
+.mt{margin-top:clamp(32px,4vw,56px)}
+.stepfull{display:flex;flex-direction:column;gap:clamp(22px,3vw,36px)}
+.steptxt{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:14px clamp(24px,4vw,64px);align-items:end}
+.steptxt>div{display:flex;flex-direction:column;gap:14px}
+.steptxt h3{font-size:clamp(26px,2.8vw,36px)}
+.steptxt p{color:var(--mut)}
+.steptxt .n,.step .n{font:600 15px/1 var(--body);color:var(--acc-text)}
+@media (max-width:860px){.steptxt{grid-template-columns:minmax(0,1fr)}}
+.steps{display:flex;flex-direction:column;gap:clamp(48px,7vw,96px);margin-top:clamp(40px,5vw,64px)}
+.step{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,8fr);gap:clamp(24px,4vw,56px);align-items:center}
+.step.flip{grid-template-columns:minmax(0,8fr) minmax(0,5fr)}
+.step.flip>.txt{order:2}
+.step .txt{display:flex;flex-direction:column;gap:14px}
+.step .n{font:600 15px/1 var(--body);color:var(--acc-text)}
+.step h3{font-size:clamp(26px,2.8vw,36px)}
+.step p{color:var(--mut)}
+@media (max-width:860px){.step,.step.flip{grid-template-columns:minmax(0,1fr)}.step.flip>.txt{order:0}}
+
+.dropviz{background:var(--card);border-radius:22px;box-shadow:var(--shadow);padding:clamp(18px,3vw,34px);display:flex;flex-direction:column;gap:16px}
+.zone{border:2px dashed var(--line);border-radius:16px;padding:clamp(22px,4vw,44px) 18px;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;color:var(--mut);font-size:15px}
+.files{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.chipf{display:flex;align-items:center;gap:8px;background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:8px 12px;font:500 13px/1 var(--mono);color:var(--ink)}
+.chipf:nth-child(1){transform:rotate(-3deg)}.chipf:nth-child(2){transform:rotate(2deg) translateY(4px)}.chipf:nth-child(3){transform:rotate(-1deg)}
+.chipf i{width:14px;height:18px;border-radius:2px;border:1.5px solid var(--acc-text);display:block}
+.ways{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;font-size:13.5px;color:var(--mut)}
+.ways div{background:var(--paper);border-radius:12px;padding:12px}
+.ways b{display:block;color:var(--ink);font-size:14px}
+@media (max-width:520px){.ways{grid-template-columns:minmax(0,1fr)}}
+
+.demo{margin-top:40px;background:var(--card);border-radius:26px;box-shadow:var(--shadow);padding:clamp(16px,3vw,32px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(18px,3vw,36px)}
+@media (max-width:860px){.demo{grid-template-columns:minmax(0,1fr)}}
+.picks{display:flex;flex-wrap:wrap;gap:8px;grid-column:1/-1}
+.pick{height:42px;padding:0 18px;border-radius:21px;border:1.5px solid var(--line);background:transparent;color:var(--ink);font:600 14px/1 var(--body);cursor:pointer}
+.pick[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.paper{align-self:start;background:#FFFFFF;color:#1F2A3A;border:1px solid #DCE4F0;border-radius:12px;padding:22px 20px;font:500 clamp(12px,1.25vw,14.5px)/2 var(--mono);position:relative;overflow:hidden}
+.paper mark{background:#FFE08A;color:inherit;border-radius:3px;padding:1px 3px}
+.paper mark.who{background:#DCE6F5}
+.paper .beam{position:absolute;left:0;right:0;top:0;height:46px;background:linear-gradient(180deg,rgba(29,43,69,0),rgba(29,43,69,.16));border-bottom:2px solid #1D2B45;opacity:0}
+.paper.scan .beam{animation:beam .9s ease-out}
+@keyframes beam{0%{transform:translateY(-46px);opacity:1}90%{opacity:1}100%{transform:translateY(300px);opacity:0}}
+.out{display:flex;flex-direction:column;gap:10px;min-width:0}
+.out h3{font-size:18px}
+.kv{display:grid;grid-template-columns:110px minmax(0,1fr);gap:10px;font-size:15px;padding:9px 0;border-bottom:1px solid var(--line)}
+.kv span{color:var(--mut)}
+.kv b{font-weight:600;overflow-wrap:anywhere}
+.kv code{font:500 13px/1.4 var(--mono);overflow-wrap:anywhere}
+.event{margin-top:6px;display:flex;gap:12px;align-items:center;background:var(--tint);border-radius:14px;padding:12px 14px;font-size:14.5px}
+.event .cal{width:44px;height:44px;flex:none;border-radius:10px;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1;color:#1F2A3A}
+.event .cal small{font-size:8.5px;font-weight:700;color:#C0281F;letter-spacing:.06em;text-transform:uppercase}
+.event .cal b{font-size:19px}
+.event span{color:var(--mut);display:block;font-size:13px}
+.typed{font-size:14px;color:var(--mut)}
+.typed b{color:var(--ok)}
+@media (prefers-reduced-motion:reduce){.paper.scan .beam{animation:none}.btn{transition:none}html{scroll-behavior:auto}}
+
+.tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:40px}
+.tab{text-align:left;background:transparent;border:0;border-top:3px solid var(--line);padding:16px 4px 6px;cursor:pointer;color:var(--mut);font:inherit;display:flex;flex-direction:column;gap:8px}
+.tab b{font:700 clamp(17px,1.8vw,22px)/1.15 var(--display);color:var(--ink);letter-spacing:-.01em}
+.tab span{font-size:14.5px;line-height:1.45}
+.tab[aria-selected="true"]{border-top-color:var(--acc-text)}
+.tab[aria-selected="false"] b{color:var(--mut)}
+.panels{display:grid;margin-top:28px}
+.panel{grid-area:1/1;visibility:hidden;opacity:0;transition:opacity .25s}
+.panel.on{visibility:visible;opacity:1}
+@media (max-width:760px){.tabs{grid-template-columns:minmax(0,1fr)}.tab span{display:none}.tab[aria-selected="true"] span{display:block}}
+
+.also{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(24px,4vw,64px);margin-top:clamp(64px,8vw,112px)}
+.also h2{font-size:clamp(30px,3.6vw,46px)}
+.also .rows{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px clamp(20px,3vw,40px)}
+.also .rows div{display:flex;flex-direction:column;gap:8px}
+.also h3{font-size:19px}
+.also p{color:var(--mut);font-size:15.5px}
+@media (max-width:860px){.also{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:520px){.also .rows{grid-template-columns:minmax(0,1fr)}}
+.note{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(24px,4vw,64px);border-top:1px solid var(--line);padding-top:clamp(28px,4vw,48px)}
+.note h2{font-size:clamp(30px,3.6vw,46px)}
+.note div{display:flex;flex-direction:column;gap:16px;font-size:clamp(17px,1.5vw,19px);max-width:62ch}
+.note .sig{font:600 15px/1 var(--body);color:var(--mut)}
+@media (max-width:860px){.note{grid-template-columns:minmax(0,1fr)}}
+.band{background:var(--deep);color:var(--on-deep);margin-top:clamp(64px,9vw,128px);padding-block:clamp(56px,8vw,112px)}
+.band .wrap{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(28px,5vw,72px);align-items:center}
+.band .eyebrow{color:#A3ABFF}
+.band .proof{color:var(--on-deep);font-weight:600;margin-top:18px}
+.band p{color:var(--mut-deep);margin-top:18px;max-width:52ch}
+.facts{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.facts li{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--line-deep);font-size:16px}
+.facts li:first-child{border-top:1px solid var(--line-deep)}
+.facts b{display:block}
+.facts span{color:var(--mut-deep);font-size:14.5px}
+.facts svg{width:22px;height:22px;flex:none;margin-top:2px;fill:none;stroke:#7FE0AE;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+@media (max-width:860px){.band .wrap{grid-template-columns:minmax(0,1fr)}}
+
+table{border-collapse:collapse;width:100%;font-size:clamp(13.5px,1.4vw,16px);margin-top:36px;table-layout:fixed}
+th,td{text-align:left;padding:14px clamp(8px,1.4vw,16px);overflow-wrap:anywhere;border-bottom:1px solid var(--line);vertical-align:top}
+thead th{font:700 12px/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mut)}
+td:first-child{font-weight:600}
+td{color:var(--mut)}
+th:last-child,td:last-child{background:var(--card);color:var(--ink);font-weight:600}
+thead th:last-child{border-radius:14px 14px 0 0;color:var(--acc-text)}
+tbody tr:last-child td:last-child{border-radius:0 0 14px 14px}
+
+.price{margin-top:40px;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(24px,4vw,56px);background:var(--card);border-radius:28px;box-shadow:var(--shadow);padding:clamp(22px,4vw,48px);align-items:center}
+.price .big{font:600 clamp(64px,9vw,112px)/.9 var(--display);letter-spacing:-.04em}
+.price .big small{font:600 18px/1 var(--body);color:var(--mut);letter-spacing:0;margin-left:8px}
+.price ul{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 22px;font-size:15.5px}
+.price li{padding-left:16px;position:relative}.price li::before{content:"";position:absolute;left:0;top:.62em;width:5px;height:5px;border-radius:50%;background:var(--mut)}
+.price li svg{width:20px;height:20px;flex:none;margin-top:2px;fill:none;stroke:var(--ok);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+@media (max-width:860px){.price{grid-template-columns:minmax(0,1fr)}.price ul{grid-template-columns:minmax(0,1fr)}}
+
+.faqgrid{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(24px,4vw,64px)}
+.faqgrid h2{font-size:clamp(30px,3.6vw,46px)}
+.faq details:first-child{padding-top:0}
+@media (max-width:860px){.faqgrid{grid-template-columns:minmax(0,1fr)}}
+details{border-bottom:1px solid var(--line);padding:18px 0}
+summary{cursor:pointer;font:600 20px/1.3 var(--display);list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font:500 24px/1 var(--body);color:var(--mut)}
+details[open] summary::after{content:"\2212"}
+details p{color:var(--mut);margin-top:10px;max-width:65ch}
+
+.final{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr);gap:clamp(28px,5vw,72px);align-items:center;padding-block:clamp(72px,10vw,140px) clamp(48px,6vw,80px)}
+.final .pop{width:100%;max-width:360px;justify-self:end}
+@media (max-width:860px){.final{grid-template-columns:minmax(0,1fr)}.final .pop{display:none}}
+.final h2{font-size:clamp(38px,5.4vw,76px);font-weight:600;letter-spacing:-.02em;max-width:13em}
+footer{border-top:1px solid var(--line);padding-block:26px 40px;display:flex;flex-wrap:wrap;gap:10px 28px;font-size:13.5px;color:var(--mut)}
+
+/* filing-drawer skin: one sans, tight headings, 10px corners */
+h1,h2{letter-spacing:-.022em;line-height:1.06;font-weight:550}
+h1{font-weight:550;letter-spacing:-.022em;line-height:1.03}
+h2{font-weight:550}
+h3{font-weight:600;letter-spacing:-.02em}
+.logo{font-weight:700;letter-spacing:-.03em}
+.btn{border-radius:10px;height:48px;padding:0 20px;font-size:15px;font-weight:600}
+.btn.sm{border-radius:8px;height:36px}
+.pick{border-radius:8px}
+.types span{border-radius:7px}
+.shot{border:1px solid var(--line)}
+.dropviz{border-radius:14px;border:1px solid var(--line)}
+.demo,.price{border-radius:16px;border:1px solid var(--line)}
+.final h2{font-weight:550;letter-spacing:-.022em}
+.price .big{font-weight:550;letter-spacing:-.022em}
+summary{font-weight:600;letter-spacing:-.015em}
+.paper .beam{background:linear-gradient(180deg,rgba(11,99,246,0),rgba(11,99,246,.16));border-bottom:2px solid #0B63F6}
+.paper mark.who{background:#DCE8FF}
+.dropviz .event{margin-top:0}
+.dropviz .event+.event{margin-top:-4px}
+/* Kept, "filing drawer" variation in a minimalist SaaS skin: neutral grey ground, one white sheet,
+   quiet divider tabs, one blue accent, red only for overdue. The year is still drawn as a ruler. Scoped under .d-win. */
+.d-win{--ground:#F7F7F5;--paper:#FFFFFF;--rule:#EDECE9;--edge:#E4E3DF;--ink:#1F1F1D;--mut:#6B6A66;--blue:#0B63F6;--red:#D4372C;--red-bg:#FDF4F3;--amber:#D9860B;
+--body:"Geist","Helvetica Neue",Arial,sans-serif;--mono:"Geist Mono",ui-monospace,Menlo,monospace;--t:38px;
+width:1280px;height:800px;box-sizing:border-box;position:relative;overflow:hidden;border-radius:12px;color:var(--ink);font:14px/1.35 var(--body);font-variant-numeric:tabular-nums;text-align:left;letter-spacing:0;background:var(--ground)}
+.d-win *{box-sizing:border-box}
+.d-win a{color:inherit;text-decoration:none}
+.d-win h1,.d-win p{margin:0;font-family:inherit;letter-spacing:0;line-height:inherit;max-width:none}
+.d-win button{cursor:pointer}
+.d-ic{width:16px;height:16px;flex:none;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+
+/* top bar */
+.d-top{height:54px;display:flex;align-items:center;gap:16px;padding:0 28px 0 18px}
+.d-lights{display:flex;gap:8px}
+.d-lights i{width:12px;height:12px;border-radius:50%;display:block}
+.d-plate{font-size:14px;font-weight:600}
+.d-plate b{color:#B4B3AE;font-weight:400;padding:0 3px}
+.d-find{margin-left:auto;display:flex;align-items:center;gap:8px;width:300px;height:32px;padding:0 10px;background:var(--paper);border:1px solid var(--edge);border-radius:7px;color:var(--mut);font-size:13.5px}
+.d-file{height:32px;padding:0 14px;border:0;border-radius:7px;background:var(--blue);color:#fff;font:600 13.5px/1 var(--body)}
+
+/* divider tabs */
+.d-tabs{display:flex;align-items:flex-end;gap:4px;height:46px;padding:0 28px}
+.d-win .d-tab{display:flex;align-items:center;gap:8px;height:32px;padding:0 14px;border-radius:8px 8px 0 0;background:#EDECE8;color:#4A4945;font-size:13.5px;font-weight:500;border:1px solid transparent;border-bottom:0}
+.d-tab small{font:500 11.5px/1 var(--mono);color:var(--mut)}
+.d-win .d-tab.on{height:40px;background:var(--paper);color:var(--ink);font-weight:600;border-color:var(--edge);position:relative;z-index:1;margin-bottom:-1px}
+
+/* the sheet */
+.d-sheet{position:absolute;left:28px;right:28px;top:100px;bottom:20px;background:var(--paper);border:1px solid var(--edge);border-radius:0 10px 10px 10px;box-shadow:0 1px 2px rgba(0,0,0,.03),0 10px 28px rgba(0,0,0,.05)}
+.d-hole{position:absolute;left:16px;width:13px;height:13px;border-radius:50%;background:var(--ground);border:1px solid var(--edge)}
+.d-hd{display:grid;grid-template-columns:300px minmax(0,1fr);align-items:end;height:148px;padding:0 34px 0 50px;border-bottom:1px solid var(--ink)}
+.d-count{display:flex;align-items:flex-end;gap:16px;padding-bottom:16px}
+.d-big{font:700 116px/.8 var(--body);letter-spacing:-.06em}
+.d-win .d-need{font-size:22px;font-weight:600;letter-spacing:-.02em;line-height:1.1}
+.d-win .d-day{font-size:12.5px;color:var(--mut);padding-top:7px}
+.d-ruler{position:relative;height:56px}
+.d-mo{position:absolute;left:var(--x);bottom:0;height:20px;padding-left:6px;border-left:1px solid #C9C8C3;font-size:12px;font-weight:500;color:var(--mut)}
+.d-yr{position:absolute;left:var(--x);top:6px;font:500 11px/1 var(--mono);color:var(--mut)}
+.d-flag{position:absolute;left:var(--t);bottom:-1px;height:56px;border-left:1.5px solid var(--blue)}
+.d-flag span{position:absolute;left:-1.5px;top:0;background:var(--blue);color:#fff;font-size:11.5px;font-weight:600;line-height:1;padding:4px 7px;border-radius:0 5px 5px 0;white-space:nowrap}
+
+/* rows: name on the left, a pin on the year at the right */
+.d-row{display:grid;grid-template-columns:300px minmax(0,1fr);align-items:center;height:44px;padding:0 34px 0 50px;border-bottom:1px solid var(--rule);animation:d-in .5s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i)*55ms)}
+.d-left{display:flex;align-items:baseline;gap:10px;padding-right:22px;min-width:0}
+.d-name{font-weight:500;font-size:14px;white-space:nowrap}
+.d-who{margin-left:auto;display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--mut);white-space:nowrap}
+.d-who i{width:8px;height:8px;border-radius:2px;background:var(--c);display:block}
+.d-track{position:relative;height:100%}
+.d-track::before{content:"";position:absolute;left:var(--t);top:0;bottom:-1px;border-left:1.5px solid var(--blue)}
+.d-line{position:absolute;top:50%;left:var(--t);width:calc(var(--x) - var(--t));height:1.5px;margin-top:-.75px;background:#CFCEC9;transform-origin:left center;animation:d-grow .7s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i)*55ms + .25s)}
+.d-pin{position:absolute;left:var(--x);top:50%;width:11px;height:11px;margin:-5.5px 0 0 -5.5px;border-radius:50%;background:var(--paper);border:1.5px solid #8F8E89}
+.d-lab{position:absolute;left:calc(var(--x) + 14px);top:50%;transform:translateY(-50%);font-size:12.5px;white-space:nowrap;color:var(--mut)}
+.d-lab b{font-weight:600;color:var(--ink)}
+.d-row.soon .d-line{background:var(--amber)}
+.d-row.soon .d-pin{background:var(--amber);border-color:var(--amber)}
+.d-row.soon .d-lab b{color:#9A5B00}
+.d-row.late{background:var(--red-bg)}
+.d-row.late .d-name{font-weight:600}
+.d-row.late .d-line{left:var(--x);width:calc(var(--t) - var(--x));background:var(--red);transform-origin:right center}
+.d-row.late .d-pin{background:var(--red);border-color:var(--red)}
+.d-row.late .d-lab{left:calc(var(--t) + 14px)}
+.d-row.late .d-lab b{color:var(--red)}
+.d-win .d-act{margin-left:14px;display:inline-block;padding:5px 10px;background:var(--ink);color:#fff;font-size:12.5px;font-weight:600;line-height:1;border-radius:6px}
+
+/* foot of the sheet */
+.d-ft{position:absolute;left:50px;right:34px;bottom:0;height:60px;display:flex;align-items:center;gap:10px}
+.d-tix{display:flex;align-items:center;gap:9px;height:34px;padding:0 12px;border:1px solid var(--edge);border-radius:8px;font-weight:500;font-size:13.5px}
+.d-tix b{font-weight:600}
+.d-note{margin-left:auto;font-size:12.5px;color:var(--mut)}
+
+@keyframes d-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes d-grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@media (prefers-reduced-motion:reduce){.d-row,.d-line{animation:none}}
+
+/* a single subject's tab */
+.d-row.act .d-line{background:var(--blue)}
+.d-row.act .d-pin{background:var(--blue);border-color:var(--blue)}
+.d-row.act .d-name{font-weight:600}
+.d-win .d-row.act .d-act{background:var(--blue)}
+.d-row.far .d-line{background:none;height:0;border-top:1.5px dashed #CFCEC9}
+.d-row.far .d-pin{display:none}
+.d-row.far .d-lab{left:auto;right:0;background:var(--paper);padding-left:12px}
+.d-sub{display:flex;align-items:center;gap:8px;height:34px;padding:0 34px 0 50px;background:#FAFAF8;border-bottom:1px solid var(--rule);font-size:12.5px;font-weight:600;color:var(--mut)}
+.d-sub span{font:500 11.5px/1 var(--mono)}
+.d-row.plain .d-track::before{display:none}
+.d-row.plain .d-track{display:flex;align-items:center}
+.d-meta{font-size:12.5px;color:var(--mut)}
+
+/* file view inside the drawer: filters, a table of documents, a detail panel */
+.d-sheet.files{display:flex;flex-direction:column;overflow:hidden}
+.d-links{display:flex;gap:6px;margin-left:8px}
+.d-links a{display:flex;align-items:center;gap:7px;height:28px;padding:0 10px;border-radius:7px;font-size:13px;font-weight:500;color:#4A4945}
+.d-links a b{font:500 11.5px/1 var(--mono);background:#E9E8E4;border-radius:5px;padding:3px 5px;color:var(--ink)}
+.d-filters{flex:none;height:52px;display:flex;align-items:center;gap:6px;padding:0 20px 0 50px;border-bottom:1px solid var(--rule)}
+.d-chip{display:flex;align-items:center;gap:6px;height:28px;padding:0 10px;border-radius:7px;font-size:13px;font-weight:500;color:#4A4945;white-space:nowrap}
+.d-chip i{width:8px;height:8px;border-radius:2px;display:block}
+.d-chip small{font:500 11.5px/1 var(--mono);color:var(--mut)}
+.d-chip.on{background:#EFEEEA;color:var(--ink);font-weight:600}
+.d-chip.need{color:var(--red)}
+.d-chip.need small{color:var(--red)}
+.d-split{flex:1;min-height:0;display:flex}
+.d-table{flex:1;min-width:0}
+.d-th,.d-tr{display:grid;grid-template-columns:minmax(0,1fr) 120px 190px 160px;gap:12px;align-items:center;padding:0 20px 0 50px}
+.d-th{height:32px;font-size:12px;font-weight:500;color:var(--mut);border-bottom:1px solid var(--rule)}
+.d-tr{height:31px;border-bottom:1px solid #F3F2EF;font-size:13.5px}
+.d-tr>:first-child{display:flex;align-items:center;gap:10px;min-width:0;font-weight:500}
+.d-tr>:first-child span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.d-tr .d-ic{width:18px;height:18px;stroke-width:1.35}
+.d-tr .d-mut,.d-tr.old>:last-child{color:var(--mut)}
+.d-tr.sel{background:#EAF2FF;border-bottom-color:#EAF2FF}
+.d-tr.sel>:first-child{font-weight:600}
+.d-red{color:var(--red);font-weight:500}
+.d-amb{color:#9A5B00;font-weight:500}
+.d-blu{color:var(--blue);font-weight:500}
+.d-i1{color:#6A55CC}.d-i2{color:#1F8776}.d-i3{color:#336FD6}.d-i4{color:#74832A}.d-i5{color:#2F935E}.d-i6{color:#5C7088}.d-i7{color:#B94F7A}
+.d-insp{width:296px;flex:none;border-left:1px solid var(--rule);background:#FBFBFA;padding:20px;display:flex;flex-direction:column;gap:16px}
+.d-prev{height:156px;border-radius:8px;background:#fff;border:1px solid var(--edge);box-shadow:0 2px 8px rgba(0,0,0,.05);padding:14px;display:flex;flex-direction:column;gap:9px;font-size:11px}
+.d-prev-top{display:flex;justify-content:space-between;font-size:9px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}
+.d-face{width:54px;height:66px;border-radius:4px;background:#E9E8E4;flex:none;position:relative;overflow:hidden}
+.d-face::before{content:"";position:absolute;left:50%;top:12px;width:22px;height:22px;margin-left:-11px;border-radius:50%;background:#C9C8C3}
+.d-face::after{content:"";position:absolute;left:50%;bottom:-22px;width:48px;height:48px;margin-left:-24px;border-radius:50%;background:#C9C8C3}
+.d-prev small{display:block;font-size:8px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--mut)}
+.d-prev b,.d-prev .n{font-family:var(--mono);font-weight:500}
+.d-ttl{font-size:18px;font-weight:600;letter-spacing:-.01em}
+.d-kv{display:grid;grid-template-columns:78px minmax(0,1fr);gap:8px 10px;font-size:12.5px;margin:0}
+.d-kv dt{color:var(--mut)}
+.d-kv dd{margin:0;overflow-wrap:anywhere}
+.d-btns{display:flex;gap:8px;margin-top:auto}
+.d-btn{flex:1;height:32px;border-radius:7px;border:1px solid var(--edge);background:#fff;font:500 13px/1 var(--body);color:var(--ink)}
+.d-btn.pri{background:var(--blue);border-color:var(--blue);color:#fff;font-weight:600}
+.d-tfoot{height:36px;display:flex;align-items:center;padding:0 20px 0 50px;font-size:12.5px;color:var(--mut)}
+.d-btn{white-space:nowrap}
+
+/* tab icons: a filled glyph per kind of subject, in the tab's colour; plus a tab to add one */
+.d-ti{width:15px;height:15px;flex:none;fill:var(--c)}
+.d-win .d-tab.add{width:34px;padding:0;justify-content:center;background:transparent;color:var(--mut)}
+.d-win .d-tab.add.on{background:var(--paper);color:var(--ink)}
+.d-new{position:absolute;left:964px;top:108px;width:288px;background:#fff;border:1px solid var(--edge);border-radius:12px;box-shadow:0 12px 32px rgba(0,0,0,.12);padding:16px;display:flex;flex-direction:column;gap:14px;z-index:3}
+.d-new h1{font-size:15px;font-weight:600}
+.d-new label{display:block;font-size:12px;font-weight:500;color:var(--mut);padding-bottom:6px}
+.d-new input{width:100%;height:32px;border:1px solid var(--blue);border-radius:7px;padding:0 10px;font:500 13.5px/1 var(--body);color:var(--ink);box-shadow:0 0 0 3px #DCE8FF;outline:0}
+.d-pick{display:flex;gap:6px}
+.d-pick button{width:36px;height:36px;border-radius:8px;border:1px solid var(--edge);background:#fff;display:grid;place-items:center;padding:0}
+.d-pick button.on{border-color:var(--ink);box-shadow:0 0 0 1px var(--ink)}
+.d-pick .d-ti{width:18px;height:18px;fill:#4A4945}
+.d-pick button.on .d-ti{fill:var(--c)}
+.d-sw{width:22px;height:22px;border-radius:50%;border:0;padding:0;background:var(--c)}
+.d-sw.on{box-shadow:0 0 0 2px #fff,0 0 0 4px var(--ink)}
+
+/* dark mode: add the class "dark" beside d-win */
+.d-win.dark{--ground:#191919;--paper:#202020;--rule:#2B2B2B;--edge:#353535;--ink:#EDEDEC;--mut:#9B9A97;--blue:#6CA0FF;--red:#F0756A;--red-bg:#2B1F1E;--amber:#E0A23B}
+.d-win.dark .d-tab{background:#272727;color:#C9C8C4}
+.d-win.dark .d-tab.on{background:var(--paper);color:var(--ink)}
+.d-win.dark .d-tab.add{background:transparent;color:var(--mut)}
+.dark .d-plate b{color:#5C5B58}
+.dark .d-find{background:#262626}
+.dark .d-file,.dark .d-btn.pri{background:#2F6FEB;border-color:#2F6FEB;color:#fff}
+.dark .d-links a,.dark .d-chip{color:#C9C8C4}
+.dark .d-links a b,.dark .d-chip.on{background:#2E2E2E;color:var(--ink)}
+.dark .d-chip.need,.dark .d-chip.need small{color:var(--red)}
+.dark .d-sheet{box-shadow:0 10px 28px rgba(0,0,0,.35)}
+.dark .d-tr{border-bottom-color:#272727}
+.dark .d-tr.sel{background:#1D2A44;border-bottom-color:#1D2A44}
+.dark .d-amb{color:#E5A645}
+.dark .d-insp{background:#1C1C1C}
+.dark .d-prev{background:#272727;box-shadow:none}
+.dark .d-face{background:#353535}
+.dark .d-face::before,.dark .d-face::after{background:#4C4C4C}
+.dark .d-btn{background:#272727;color:var(--ink)}
+.dark .d-kv dd[style]{color:var(--mut)!important}
+.dark .d-i1{color:#A99BF0}.dark .d-i2{color:#5CC2B0}.dark .d-i3{color:#7FA9F5}.dark .d-i4{color:#B5C25A}.dark .d-i5{color:#6CCB95}.dark .d-i6{color:#9FB0C4}.dark .d-i7{color:#E58DB0}
+
+/* primary nav in the top bar, and the packet screens */
+.d-win .d-links a.on{background:#E9E8E4;color:var(--ink);font-weight:600}
+.d-win.dark .d-links a.on{background:#2E2E2E;color:var(--ink)}
+.d-win .d-lnk{color:var(--blue);font-weight:500}
+.d-ok{color:#2F7D4F;font-weight:500}
+.d-hr{height:1px;background:var(--rule)}
+.d-btn.sm{flex:none;height:26px;padding:0 12px;font-size:12.5px}
+.d-pagehd{padding:22px 24px 18px 50px}
+.d-pagehd h1{font-size:22px;font-weight:600;letter-spacing:-.02em}
+.d-pagehd p{font-size:13.5px;color:var(--mut);padding-top:6px;max-width:620px;line-height:1.5}
+.d-win .d-pk{display:grid;grid-template-columns:minmax(0,1fr) 260px auto;gap:24px;align-items:center;padding:16px 20px 16px 50px;border-bottom:1px solid var(--rule)}
+.d-meter{display:flex;gap:3px;height:6px}
+.d-meter i{flex:1;border-radius:3px;background:#3BA36A;display:block}
+.d-meter i.s{background:var(--amber)}
+.d-meter i.m{background:#E1E0DC}
+.d-th.d-tm,.d-tr.d-tm{grid-template-columns:minmax(0,1fr) 200px 160px 70px}
+.d-tr.d-tm{height:40px}
+.d-tr.d-tm .d-ti{fill:#B4B3AE}
+.d-th.d-pr,.d-tr.d-pr{grid-template-columns:minmax(0,1fr) 220px 160px 140px}
+.d-tr.d-pr{height:30px}
+.d-steps{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:10px;font-size:12.5px;line-height:1.5;color:var(--mut)}
+.d-steps b{color:var(--ink);font-weight:600}
+.d-gap{display:flex;gap:10px;align-items:flex-start;font-size:12.5px;line-height:1.45}
+.d-gap>div{flex:1}
+.d-gap b{display:block;font-weight:600}
+.d-dropz{border:1.5px dashed #C9C8C3;border-radius:8px;padding:14px;text-align:center;font-size:12.5px;color:var(--mut)}
+.d-dim{position:absolute;inset:0;background:rgba(25,25,23,.32)}
+.d-modal{position:absolute;left:250px;top:120px;width:780px;height:560px;background:#fff;border-radius:14px;box-shadow:0 30px 80px rgba(0,0,0,.28);display:grid;grid-template-columns:360px minmax(0,1fr);overflow:hidden}
+.d-cover{margin:24px;background:#fff;border:1px solid var(--edge);border-radius:4px;box-shadow:0 6px 18px rgba(0,0,0,.08);padding:26px 22px 18px;display:flex;flex-direction:column;gap:6px}
+.d-modal>.d-cover{align-self:stretch}
+.d-cover-t{font-size:17px;font-weight:600;letter-spacing:-.01em}
+.d-cover-s{font-size:9.5px;color:var(--mut)}
+.d-cover-i{display:flex;flex-direction:column;gap:5px;padding-top:12px;font-size:10.5px}
+.d-cover-i div{display:flex;align-items:baseline;gap:6px}
+.d-cover-i div i{flex:1;border-bottom:1px dotted #C9C8C3}
+.d-cover-i .g{font-weight:600;padding-top:7px}
+.d-cover-i .x{color:var(--red)}
+.d-mopts{padding:26px 26px 22px 6px;display:flex;flex-direction:column;gap:18px}
+.d-mopts label{display:block;font-size:12px;font-weight:500;color:var(--mut);padding-bottom:7px}
+.d-seg{display:inline-flex;background:#EFEEEA;border-radius:8px;padding:3px;gap:3px;font-size:13px;font-weight:500}
+.d-seg span{padding:6px 14px;border-radius:6px;color:#4A4945}
+.d-seg span.on{background:#fff;color:var(--ink);font-weight:600;box-shadow:0 1px 2px rgba(0,0,0,.12)}
+.d-check{display:flex;align-items:center;gap:9px;font-size:13.5px;padding:4px 0}
+.d-check::before{content:"";width:16px;height:16px;border-radius:4px;border:1.5px solid #B4B3AE;flex:none}
+.d-check.on::before{border-color:var(--blue);background:var(--blue) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3.5 8.5l3 3 6-7' fill='none' stroke='%23fff' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/12px no-repeat}
+.d-field{height:34px;border:1px solid var(--edge);border-radius:7px;display:flex;align-items:center;padding:0 10px;font-size:13.5px}
+.d-plate,.d-links a,.d-file{white-space:nowrap;flex:none}
+.d-links{flex:none}
+
+/* section switch: one framed control in the middle of the top bar, so it reads as navigation */
+.d-win .d-links{display:flex;gap:2px;margin:0 auto;padding:3px;background:#E9E8E4;border-radius:10px}
+.d-win .d-links a{height:30px;padding:0 13px;gap:7px;border-radius:7px;font-size:13.5px;font-weight:500;color:#4A4945;background:transparent}
+.d-win .d-links a .d-ic{width:15px;height:15px}
+.d-win .d-links a b{background:rgba(0,0,0,.08);color:inherit}
+.d-win .d-links a.on{background:#fff;color:var(--ink);font-weight:600;box-shadow:0 1px 2px rgba(0,0,0,.14)}
+.d-win .d-links a.on .d-ic{color:var(--blue)}
+.d-win .d-links a.on b{background:#E8F0FF;color:#0B4FC4}
+.d-win .d-find{margin-left:0;width:250px}
+.d-win.dark .d-links{background:#262626}
+.d-win.dark .d-links a{color:#C9C8C4}
+.d-win.dark .d-links a b{background:rgba(255,255,255,.1)}
+.d-win.dark .d-links a.on{background:#3A3A3A;color:var(--ink);box-shadow:none}
+.d-win.dark .d-links a.on b{background:#1D2A44;color:#A9C6FF}
+.d-find span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* To review: the scan on the left, what Kept read on the right */
+.d-stage{flex:1;min-width:0;background:#F7F7F5;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px}
+.d-pass{width:500px;background:#FDFDFB;border:1px solid #DEDDD8;border-radius:12px;box-shadow:0 14px 34px rgba(0,0,0,.10);padding:22px 24px 18px;display:flex;flex-direction:column;gap:14px;transform:rotate(-1deg)}
+.d-pass-top{display:flex;justify-content:space-between;font-size:10.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--mut)}
+.d-pf{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:11px 14px;align-content:start}
+.d-pf div{display:flex;flex-direction:column;gap:3px;font-size:14px;font-weight:600}
+.d-pf .w{grid-column:1/-1}
+.d-pf small{font-size:9px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}
+.d-pf mark{background:#FFE58A;color:inherit;border-radius:4px;padding:2px 5px;margin:-2px -5px}
+.d-pf mark.who{background:#E5DBFA}
+.d-mrz{font:500 12px/1.6 var(--mono);letter-spacing:.04em;padding-top:11px;border-top:1px dashed #D5D4CF;white-space:nowrap;overflow:hidden}
+.d-rv{display:grid;grid-template-columns:110px minmax(0,1fr);gap:12px 10px;margin:0;font-size:15px}
+.d-rv dt{color:var(--mut);display:flex;align-items:center;gap:8px}
+.d-rv dt i{width:11px;height:11px;border-radius:3px;display:block}
+.d-rv dd{margin:0;font-weight:600}
+.d-then{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:8px;font-size:13px;line-height:1.5;color:#4A4945}
+.d-file,.d-btn{display:inline-flex;align-items:center;justify-content:center}
+
+</style>
+</head>
+<body>
+<div id="top"></div>
+<div class="top">
+<div class="wrap">
+<nav>
+  <a class="logo" href="#top"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#232F36"/><rect x="12" y="17.5" width="15" height="20" rx="3.2" fill="#F1D892"/><rect x="24.5" y="13.5" width="15" height="24" rx="3.2" fill="#E9C46A"/><rect x="37" y="19" width="15" height="18" rx="3.2" fill="#D3A94A"/><rect x="7" y="24.5" width="50" height="28" rx="6" fill="#3A4D57"/><rect x="10" y="27.5" width="44" height="22" rx="3.5" fill="none" stroke="#F2F0EA" stroke-opacity=".55" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="3.2 2.8"/><path d="M29.1 43.19Q28.93 43.87 28.95 44.21Q28.97 44.55 29.27 44.67Q29.58 44.78 30.22 44.82L30.15 45.2Q29.65 45.16 28.89 45.15Q28.13 45.14 27.35 45.14Q26.47 45.14 25.72 45.15Q24.97 45.16 24.48 45.2L24.58 44.82Q25.2 44.78 25.56 44.67Q25.91 44.55 26.12 44.21Q26.33 43.87 26.5 43.19L29 33.76Q29.19 33.06 29.16 32.73Q29.12 32.39 28.82 32.27Q28.53 32.15 27.88 32.13L27.98 31.75Q28.43 31.77 29.2 31.79Q29.97 31.81 30.85 31.81Q31.63 31.81 32.37 31.79Q33.12 31.77 33.66 31.75L33.57 32.13Q32.92 32.15 32.56 32.27Q32.2 32.39 32 32.73Q31.8 33.06 31.61 33.76ZM35.81 44.19Q36.23 44.19 36.5 43.88Q36.77 43.56 36.99 42.94L37.31 41.97H37.69L37.19 43.43Q36.83 44.49 36.19 44.98Q35.56 45.47 34.72 45.47Q33.62 45.47 33.12 44.84Q32.63 44.21 32.75 43.13L33.04 40.64Q33.11 39.86 33.06 39.41Q33 38.96 32.83 38.71Q32.66 38.45 32.35 38.27L32.39 38.08Q33.26 38.15 33.89 38.32Q34.51 38.49 34.88 38.84Q35.26 39.19 35.4 39.79Q35.55 40.4 35.47 41.36L35.31 43.41Q35.28 43.75 35.38 43.97Q35.49 44.19 35.81 44.19ZM32.62 38.36Q31.59 38.64 31.21 38.57Q30.84 38.49 30.87 38.19Q30.91 37.9 31.26 37.82Q31.62 37.74 32.62 38.02ZM36.95 32.22Q36.6 32.58 36.36 33.16Q36.12 33.74 35.91 34.42Q35.7 35.1 35.44 35.77Q35.18 36.44 34.79 37Q34.4 37.55 33.82 37.89Q33.24 38.23 32.37 38.21L32.41 38.02Q33.38 37.92 33.95 37.43Q34.52 36.93 34.86 36.19Q35.21 35.45 35.44 34.64Q35.68 33.83 35.94 33.13Q36.21 32.42 36.66 32Q36.98 31.68 37.32 31.58Q37.65 31.48 37.95 31.48Q38.73 31.48 39.14 31.91Q39.54 32.34 39.52 33.01Q39.5 33.36 39.34 33.74Q39.17 34.12 38.84 34.39Q38.51 34.65 38 34.65Q37.5 34.65 37.2 34.34Q36.89 34.03 36.91 33.53Q36.92 33.07 37.23 32.61Q37.54 32.15 38.05 31.89Q38.01 31.87 37.96 31.86Q37.9 31.85 37.82 31.85Q37.51 31.86 37.31 31.96Q37.12 32.05 36.95 32.22Z" fill="#F2F0EA"/></svg>Kept</a>
+  <div class="links"><a href="#how">How it works</a><a href="#tabs">Organise</a><a href="#packets">Applications</a><a href="#privacy">Privacy</a><a href="#pricing">Pricing</a></div>
+  <button class="theme" id="theme" type="button" aria-label="Switch to dark mode" aria-pressed="false"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 019.5 4a8 8 0 1010.5 10.5z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8"/></svg></button>
+  <a class="btn sm" href="#pricing">Download</a>
+</nav>
+
+<header class="hero">
+  <h1>Your place for the documents <em>you can't afford to lose.</em></h1>
+  <p class="lead">Store every important piece of information in one secure filing drawer locally. Filed for you, searchable, and on your calendar before it expires.</p>
+  <div class="cta">
+    <a class="btn" href="#pricing"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11.2l-3.6-3.6L7 12l5 5 5-5-1.4-1.4-3.6 3.6V3zM5 19h14v2H5z"/></svg>Download for Mac</a>
+    <a class="btn ghost" href="#how">See how it works</a>
+  </div>
+  <p class="fine">Free for 14 days. Then US$39, once. Nothing leaves your Mac.</p>
+  <div class="stage">
+  <svg class="stitch" aria-hidden="true"><filter id="stitch-wobble" x="-2%" y="-2%" width="104%" height="104%"><feTurbulence type="fractalNoise" baseFrequency=".035" numOctaves="2" seed="4"/><feDisplacementMap in="SourceGraphic" scale="1.6"/></filter><rect width="100%" height="100%" rx="22" filter="url(#stitch-wobble)"/></svg>
+  <div class="heroshot">
+    <div class="filetabs" aria-hidden="true"><span>Identity</span><span>Leases</span><span>Insurance</span><span>Tax</span><span>Income</span><span>Vehicle</span><span>Bills</span></div>
+    <div class="shot" data-crop-sm="28,60,600,440" role="img" aria-label="The Kept app: a filing drawer with a tab for each family member, home and car, and a table of documents sorted by expiry. An expired health card is in red and two documents due soon are in amber."><div class="shot-in" aria-hidden="true"><div class="d-win">
+<div class="d-top">
+<div class="d-lights"><i style="background:#FF5F57"></i><i style="background:#FEBC2E"></i><i style="background:#28C840"></i></div>
+<div class="d-plate">Kept</div>
+<nav class="d-links" aria-label="Sections"><a class="on"><svg class="d-ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h5.5L12 5v8.5H4zM9.5 2.5V5H12M6 8h4M6 10.5h3"/></svg>Documents</a><a ><svg class="d-ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 9.5l2-6h7l2 6v4h-11zM2.5 9.5h3.2l.8 1.5h3l.8-1.5h3.2"/></svg>To review <b>2</b></a><a ><svg class="d-ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4.5h4l1.2 1.5h5.8v7h-11zM6 9.5l1.5 1.5L10 8.2"/></svg>Packets <b>1</b></a></nav>
+<div class="d-find"><svg class="d-ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M7 12A5 5 0 107 2a5 5 0 000 10zM11 11l3 3"/></svg><span>Find a document or a number</span></div>
+<span class="d-file">File a document</span>
+</div>
+<div class="d-tabs">
+<a class="d-tab on" style="--c:#8F8E89"><svg class="d-ti" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M1.8 3.5h4.6l1.3 1.6h6.5V13H1.8z"/></svg>Everyone <small>132</small></a>
+<a class="d-tab" style="--c:#D44C47"><svg class="d-ti" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M8 8a3 3 0 100-6 3 3 0 000 6zM2.5 14c0-3 2.5-4.8 5.5-4.8s5.5 1.8 5.5 4.8z"/></svg>Claire <small>31</small></a>
+<a class="d-tab" style="--c:#337EA9"><svg class="d-ti" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M8 8a3 3 0 100-6 3 3 0 000 6zM2.5 14c0-3 2.5-4.8 5.5-4.8s5.5 1.8 5.5 4.8z"/></svg>Daniel <small>34</small></a>
+<a class="d-tab" style="--c:#CB912F"><svg class="d-ti" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.8L1.8 7.2V14h4.4v-4h3.6v4h4.4V7.2z"/></svg>14 Alder St <small>38</small></a>
+<a class="d-tab" style="--c:#9F6B53"><svg class="d-ti" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.8L1.8 7.2V14h4.4v-4h3.6v4h4.4V7.2z"/></svg>Unit 5 <small>17</small></a>
+<a class="d-tab" style="--c:#787774"><svg class="d-ti" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M3.6 3.5h8.8l1.6 4.2V13h-2v-1.5H4V13H2V7.7zM4.6 5l-.9 2.5h8.6L11.4 5z"/></svg>Honda CR-V <small>12</small></a>
+<a class="d-tab add" aria-label="New tab"><svg class="d-ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M3 8h10"/></svg></a>
+</div>
+<div class="d-sheet files">
+<i class="d-hole" style="top:210px"></i><i class="d-hole" style="top:470px"></i>
+<div class="d-filters">
+<span class="d-chip on">All <small>132</small></span>
+<span class="d-chip need">Needs you <small>3</small></span>
+<span class="d-chip"><i style="background:#7A66D6"></i>Identity <small>10</small></span>
+<span class="d-chip"><i style="background:#2A9483"></i>Leases <small>6</small></span>
+<span class="d-chip"><i style="background:#3F7BE0"></i>Insurance <small>11</small></span>
+<span class="d-chip"><i style="background:#84932F"></i>Tax <small>34</small></span>
+<span class="d-chip"><i style="background:#3BA36A"></i>Income <small>29</small></span>
+<span class="d-chip"><i style="background:#6C8098"></i>Vehicle <small>9</small></span>
+<span class="d-chip"><i style="background:#C75C88"></i>Bills <small>33</small></span>
+</div>
+<div class="d-split">
+<div class="d-table">
+<div class="d-th"><span>Name</span><span>Category</span><span>Belongs to</span><span>Expires or dated ↑</span></div>
+<div class="d-tr "><div><svg class="d-ic d-i1" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4h11v8h-11zM6.6 7.1a1.1 1.1 0 11-2.2 0 1.1 1.1 0 012.2 0zM4.2 10.2c.2-.8.7-1.2 1.3-1.2s1.1.4 1.3 1.2M9.2 7h2.6M9.2 9.4h2.6"/></svg><span>Health card</span></div><span>Identity</span><span class="">Claire</span><span class="d-red">Expired 4 Nov 2026</span></div>
+<div class="d-tr "><div><svg class="d-ic d-i3" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5l4.5 1.6v3.4c0 2.7-1.8 4.8-4.5 6-2.7-1.2-4.5-3.3-4.5-6V4.1zM6.2 8l1.3 1.3 2.4-2.6"/></svg><span>Car insurance policy</span></div><span>Insurance</span><span class="">Honda CR-V</span><span class="d-amb">30 Nov 2026</span></div>
+<div class="d-tr sel"><div><svg class="d-ic d-i1" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4h11v8h-11zM6.6 7.1a1.1 1.1 0 11-2.2 0 1.1 1.1 0 012.2 0zM4.2 10.2c.2-.8.7-1.2 1.3-1.2s1.1.4 1.3 1.2M9.2 7h2.6M9.2 9.4h2.6"/></svg><span>Driver's licence</span></div><span>Identity</span><span class="">Daniel</span><span class="d-amb">2 Dec 2026</span></div>
+<div class="d-tr "><div><svg class="d-ic d-i6" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 11V8.5l1.5-4h8l1.5 4V11zM4.5 11v1.5M11.5 11v1.5M4.8 8.5v.01M11.2 8.5v.01"/></svg><span>Vehicle registration</span></div><span>Vehicle</span><span class="">Honda CR-V</span><span class="">9 Jan 2027</span></div>
+<div class="d-tr "><div><svg class="d-ic d-i2" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h5.5L12 5v8.5H4zM9.5 2.5V5H12M5.8 11c.7-1.4 1.2-1.4 1.6-.2.3 1 .8 1 2.6-.6"/></svg><span>Lease, 2026 to 2027</span></div><span>Lease</span><span class="">Unit 5, 220 Wren Ave</span><span class="">31 Jan 2027</span></div>
+<div class="d-tr "><div><svg class="d-ic d-i3" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5l4.5 1.6v3.4c0 2.7-1.8 4.8-4.5 6-2.7-1.2-4.5-3.3-4.5-6V4.1zM6.2 8l1.3 1.3 2.4-2.6"/></svg><span>Home insurance policy</span></div><span>Insurance</span><span class="">14 Alder Street</span><span class="">14 Feb 2027</span></div>
+<div class="d-tr "><div><svg class="d-ic d-i4" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h8v11l-1.3-1-1.4 1-1.3-1-1.3 1-1.4-1-1.3 1zM6.3 9.7l3.4-3.4M6.5 6.5v.01M9.5 9.5v.01"/></svg><span>Property tax bill, 2026</span></div><span>Tax</span><span class="">Unit 5, 220 Wren Ave</span><span class="">1 Mar 2027</span></div>
+<div class="d-tr "><div><svg class="d-ic d-i1" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h8v11H4zM10 7a2 2 0 11-4 0 2 2 0 014 0zM6.5 11.2h3"/></svg><span>Passport</span></div><span>Identity</span><span class="">Claire</span><span class="">12 Mar 2027</span></div>
+<div class="d-tr "><div><svg class="d-ic d-i3" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5l4.5 1.6v3.4c0 2.7-1.8 4.8-4.5 6-2.7-1.2-4.5-3.3-4.5-6V4.1zM6.2 8l1.3 1.3 2.4-2.6"/></svg><span>Landlord insurance policy</span></div><span>Insurance</span><span class="">Unit 5, 220 Wren Ave</span><span class="">30 Jun 2027</span></div>
+<div class="d-tr "><div><svg class="d-ic d-i1" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4h11v8h-11zM6.6 7.1a1.1 1.1 0 11-2.2 0 1.1 1.1 0 012.2 0zM4.2 10.2c.2-.8.7-1.2 1.3-1.2s1.1.4 1.3 1.2M9.2 7h2.6M9.2 9.4h2.6"/></svg><span>Driver's licence</span></div><span>Identity</span><span class="">Claire</span><span class="">12 Apr 2029</span></div>
+<div class="d-tr "><div><svg class="d-ic d-i1" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h8v11H4zM10 7a2 2 0 11-4 0 2 2 0 014 0zM6.5 11.2h3"/></svg><span>Passport</span></div><span>Identity</span><span class="">Daniel</span><span class="">20 Sep 2031</span></div>
+<div class="d-tr old"><div><svg class="d-ic d-i5" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4.5h11v7h-11zM9.5 8a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM4.5 6.5v.01M11.5 9.5v.01"/></svg><span>Pay stub, October</span></div><span>Income</span><span class="">Claire</span><span class="">31 Oct 2026</span></div>
+<div class="d-tr old"><div><svg class="d-ic d-i7" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h8v11l-1.3-1-1.4 1-1.3-1-1.3 1-1.4-1-1.3 1zM8.6 4.8L6.6 8h2.8l-2 3.2"/></svg><span>Hydro bill, October</span></div><span>Bills</span><span class="">14 Alder Street</span><span class="">28 Oct 2026</span></div>
+<div class="d-tr old"><div><svg class="d-ic d-i7" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h8v11l-1.3-1-1.4 1-1.3-1-1.3 1-1.4-1-1.3 1zM8 5l1.7 2.6a2 2 0 11-3.4 0z"/></svg><span>Water bill, October</span></div><span>Bills</span><span class="">Unit 5, 220 Wren Ave</span><span class="">28 Oct 2026</span></div>
+<div class="d-tr old"><div><svg class="d-ic d-i4" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h8v11l-1.3-1-1.4 1-1.3-1-1.3 1-1.4-1-1.3 1zM6.3 9.7l3.4-3.4M6.5 6.5v.01M9.5 9.5v.01"/></svg><span>Notice of assessment, 2025</span></div><span>Tax</span><span class="">Claire</span><span class="">2 Jun 2026</span></div>
+<div class="d-tr old"><div><svg class="d-ic d-i4" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h8v11l-1.3-1-1.4 1-1.3-1-1.3 1-1.4-1-1.3 1zM6.3 9.7l3.4-3.4M6.5 6.5v.01M9.5 9.5v.01"/></svg><span>Notice of assessment, 2025</span></div><span>Tax</span><span class="">Daniel</span><span class="">28 May 2026</span></div>
+<div class="d-tr old"><div><svg class="d-ic d-i4" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h8v11l-1.3-1-1.4 1-1.3-1-1.3 1-1.4-1-1.3 1zM6.3 9.7l3.4-3.4M6.5 6.5v.01M9.5 9.5v.01"/></svg><span>T4 slip, 2025</span></div><span>Tax</span><span class="">Claire</span><span class="">Tax year 2025</span></div>
+<div class="d-tfoot">Showing 17 of 132, soonest first</div>
+</div>
+<aside class="d-insp">
+<div class="d-prev">
+<div class="d-prev-top"><span>Driver's licence</span><span>Class G</span></div>
+<div style="display:flex;gap:12px"><div class="d-face"></div><div style="display:flex;flex-direction:column;gap:6px"><div><small>Name</small><b>BENNETT, DANIEL J</b></div><div><small>Number</small><span class="n">B2917-40618-50322</span></div><div><small>Expires</small><b>2026/12/02</b></div></div></div>
+</div>
+<div><div class="d-ttl">Driver's licence</div><div class="d-amb" style="padding-top:3px">Expires in 15 days</div></div>
+<dl class="d-kv">
+<dt>Category</dt><dd>Identity</dd>
+<dt>Belongs to</dt><dd>Daniel</dd>
+<dt>Expires</dt><dd>2 December 2026</dd>
+<dt>Reminder</dt><dd>On the Family calendar</dd>
+<dt>Used in</dt><dd><a class="d-lnk">Mortgage application packet</a></dd>
+<dt>File</dt><dd style="color:#6B6A66">Daniel - Driver's licence - exp 2026-12-02.pdf</dd>
+</dl>
+<div class="d-btns"><span class="d-btn pri">Open</span><span class="d-btn">Show in Finder</span></div>
+</aside>
+</div>
+</div>
+</div></div></div>
+  </div>
+  </div>
+</header>
+</div>
+</div>
+
+<div class="wrap">
+
+<section id="how">
+  <div class="head2">
+    <h2>How it works</h2>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="txt"><h3>1. Drop a document in</h3><p>Drag a PDF or a phone photo onto Kept, or point it at your Downloads and scanner folders and it will pick up new files as they arrive. A whole folder of old scans works too.</p></div>
+      <div class="dropviz">
+        <div class="zone"><div class="files"><div class="chipf"><i></i>IMG_4127.HEIC</div><div class="chipf"><i></i>Scan_0042.pdf</div><div class="chipf"><i></i>T4_2025.pdf</div></div>Drop files here</div>
+        <div class="ways"><div><b>Drag and drop</b>Window, Dock or menu bar</div><div><b>Watched folders</b>Downloads, scanner output</div><div><b>iPhone camera</b>Scan straight to your Mac</div></div>
+      </div>
+    </div>
+    <div class="stepfull">
+      <div class="steptxt"><div><h3>2. Check what Kept read</h3></div><p>Kept shows what the document is, who it belongs to and when it expires, each highlighted where it was found on the page. Press Return to file it. There is no form to fill in.</p></div>
+      <div class="shot" data-crop-sm="236,270,480,340" role="img" aria-label="The To review screen: a scanned passport with the name and expiry date highlighted, beside the three details Kept read and a Looks right button."><div class="shot-in" aria-hidden="true"><div class="d-win">
+<div class="d-top">
+<div class="d-lights"><i style="background:#FF5F57"></i><i style="background:#FEBC2E"></i><i style="background:#28C840"></i></div>
+<div class="d-plate">Kept <b>/</b> To review</div>
+<nav class="d-links" aria-label="Sections"><a ><svg class="d-ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h5.5L12 5v8.5H4zM9.5 2.5V5H12M6 8h4M6 10.5h3"/></svg>Documents</a><a class="on"><svg class="d-ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 9.5l2-6h7l2 6v4h-11zM2.5 9.5h3.2l.8 1.5h3l.8-1.5h3.2"/></svg>To review <b>2</b></a><a ><svg class="d-ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4.5h4l1.2 1.5h5.8v7h-11zM6 9.5l1.5 1.5L10 8.2"/></svg>Packets <b>1</b></a></nav>
+<div class="d-find"><svg class="d-ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M7 12A5 5 0 107 2a5 5 0 000 10zM11 11l3 3"/></svg><span>Find a document or a number</span></div>
+<span class="d-file">File a document</span>
+</div>
+<div class="d-tabs">
+<a class="d-tab on" style="--c:#D44C47"><svg class="d-ti" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M3.5 1.8h6l3 3V14.2h-9z"/></svg>Passport <small style="font-family:inherit">Claire</small></a>
+<a class="d-tab" style="--c:#9F6B53"><svg class="d-ti" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M3.5 1.8h6l3 3V14.2h-9z"/></svg>Lease renewal <small style="font-family:inherit">Unit 5</small></a>
+</div>
+<div class="d-sheet files">
+<i class="d-hole" style="top:210px"></i><i class="d-hole" style="top:470px"></i>
+<div class="d-split">
+<div class="d-stage">
+<div class="d-pass">
+<div class="d-pass-top"><span>Passport · Passeport</span><span>Utopia · UTO</span><span style="color:#D4372C">Specimen</span></div>
+<div style="display:flex;gap:18px">
+<div class="d-face" style="width:96px;height:122px"></div>
+<div class="d-pf">
+<div class="w"><small>Surname / Given names</small><span><mark class="who">BENNETT, CLAIRE ANNE</mark></span></div>
+<div><small>Passport no.</small><span>UT4829107</span></div>
+<div><small>Nationality</small><span>UTOPIAN</span></div>
+<div><small>Date of issue</small><span>03 NOV 2026</span></div>
+<div><small>Date of expiry</small><span><mark>03 NOV 2036</mark></span></div>
+</div>
+</div>
+<div class="d-mrz">P&lt;UTOBENNETT&lt;&lt;CLAIRE&lt;ANNE&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;<br>UT4829107&lt;UTO8504127F3611034&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;06</div>
+</div>
+<p class="d-mut" style="font-size:12.5px">IMG_4127.HEIC · photo from your iPhone, straightened and cropped</p>
+</div>
+<aside class="d-insp" style="width:360px;padding:26px">
+<div><div class="d-ttl" style="font-size:22px">Is this right?</div><div class="d-mut" style="font-size:13.5px;padding-top:4px">Kept read this from the page. Nothing to type.</div></div>
+<dl class="d-rv">
+<dt>It's a</dt><dd>Passport</dd>
+<dt><i style="background:#E5DBFA"></i>Belongs to</dt><dd>Claire</dd>
+<dt><i style="background:#FFE58A"></i>Expires</dt><dd>3 November 2036</dd>
+</dl>
+<div class="d-hr"></div>
+<div class="d-ttl" style="font-size:15px">When you confirm</div>
+<ul class="d-then">
+<li>It is filed under Claire's tab, replacing her old passport, which moves to the archive.</li>
+<li>A reminder goes on the Family calendar for February 2036, nine months before it expires.</li>
+<li>The mortgage packet switches to this copy.</li>
+</ul>
+<div class="d-btns"><span class="d-btn">Fix something</span><span class="d-btn pri" style="flex:2">Looks right</span></div>
+<p class="d-mut" style="font-size:12.5px;text-align:center">1 of 2. Next is the lease renewal for Unit 5.</p>
+</aside>
+</div>
+</div>
+</div></div></div>
+    </div>
+    <div class="step">
+      <div class="txt"><h3>3. The renewal goes on your calendar</h3><p>Each expiry date becomes an event on the calendar you already use, with alerts ahead of time: nine months for a passport, sixty days for a lease. Because it is your normal calendar, the alerts reach your phone too.</p></div>
+      <div class="dropviz" aria-hidden="true">
+        <div class="event"><div class="cal"><small>Dec</small><b>2</b></div><div><b>Daniel's driver's licence expires</b><span>Family calendar · alerts 60 and 15 days before</span></div></div>
+        <div class="event"><div class="cal"><small>Jan</small><b>31</b></div><div><b>Lease ends, Unit 5</b><span>Family calendar · renewal notice due 2 Dec</span></div></div>
+        <div class="event"><div class="cal"><small>Feb</small><b>3</b></div><div><b>Renew Claire's passport</b><span>2036 · nine months before it expires</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="try">
+  <div class="head2">
+    <h2>Try it with a sample document</h2>
+    <p class="lead">Pick one to see what Kept reads from it.</p>
+  </div>
+  <div class="demo">
+    <div class="picks" role="group" aria-label="Sample documents">
+      <button class="pick" id="pick-lease" aria-pressed="true" data-k="lease">A lease</button>
+      <button class="pick" id="pick-auto" aria-pressed="false" data-k="auto">A car insurance policy</button>
+      <button class="pick" id="pick-passport" aria-pressed="false" data-k="passport">A passport</button>
+    </div>
+    <div class="paper" id="paper" aria-live="polite"><div class="beam"></div><div id="paper-text">RESIDENTIAL TENANCY AGREEMENT<br>Rental unit: <mark class="who">Unit 5, 220 Wren Avenue</mark><br>Landlord: C. Bennett and D. Bennett<br>Tenant: Rachel Osei<br>Term begins 1 February 2027<br>Term ends <mark>31 January 2028</mark><br>Rent $2,450 payable monthly</div></div>
+    <div class="out">
+      <div class="kv"><span>Recognises</span><b id="o-type">Residential lease</b></div>
+      <div class="kv"><span>Files under</span><b id="o-who">Unit 5, 220 Wren Ave</b></div>
+      <div class="kv"><span>Date that matters</span><b id="o-date">Ends 31 Jan 2028</b></div>
+      <div class="kv"><span>Renames to</span><code id="o-file">Unit 5 - Lease - ends 2028-01-31.pdf</code></div>
+      <div class="event"><div class="cal"><small id="o-mon">Dec</small><b id="o-day">2</b></div><div><b id="o-ev">Lease renewal notice due</b><span id="o-when">2 Dec 2027, sixty days before the lease ends</span></div></div>
+      <p class="typed">Fields you typed: <b>0</b></p>
+    </div>
+  </div>
+</section>
+
+<section id="tabs">
+  <div class="head2">
+    <h2>A tab for every person, home and car you look after.</h2>
+    <p class="lead">Kept is laid out like a filing drawer. Each tab holds the documents for one person or one property, with whatever is due next at the top.</p>
+  </div>
+  <div class="shot mt" data-crop-sm="28,60,600,440" role="img" aria-label="Claire's tab in Kept, listing her documents with their status. Her passport is selected and the panel says a new one is waiting for review."><div class="shot-in" aria-hidden="true"><div class="d-win">
+<div class="d-top">
+<div class="d-lights"><i style="background:#FF5F57"></i><i style="background:#FEBC2E"></i><i style="background:#28C840"></i></div>
+<div class="d-plate">Kept <b>/</b> Claire</div>
+<nav class="d-links" aria-label="Sections"><a class="on"><svg class="d-ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h5.5L12 5v8.5H4zM9.5 2.5V5H12M6 8h4M6 10.5h3"/></svg>Documents</a><a ><svg class="d-ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 9.5l2-6h7l2 6v4h-11zM2.5 9.5h3.2l.8 1.5h3l.8-1.5h3.2"/></svg>To review <b>2</b></a><a ><svg class="d-ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4.5h4l1.2 1.5h5.8v7h-11zM6 9.5l1.5 1.5L10 8.2"/></svg>Packets <b>1</b></a></nav>
+<div class="d-find"><svg class="d-ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M7 12A5 5 0 107 2a5 5 0 000 10zM11 11l3 3"/></svg><span>Find in Claire's documents</span></div>
+<span class="d-file">File a document</span>
+</div>
+<div class="d-tabs">
+<a class="d-tab" style="--c:#B4B3AE"><svg class="d-ti" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M1.8 3.5h4.6l1.3 1.6h6.5V13H1.8z"/></svg>Everyone <small>148</small></a>
+<a class="d-tab on" style="--c:#D44C47"><svg class="d-ti" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M8 8a3 3 0 100-6 3 3 0 000 6zM2.5 14c0-3 2.5-4.8 5.5-4.8s5.5 1.8 5.5 4.8z"/></svg>Claire <small>31</small></a>
+<a class="d-tab" style="--c:#337EA9"><svg class="d-ti" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M8 8a3 3 0 100-6 3 3 0 000 6zM2.5 14c0-3 2.5-4.8 5.5-4.8s5.5 1.8 5.5 4.8z"/></svg>Daniel <small>34</small></a>
+<a class="d-tab" style="--c:#448361"><svg class="d-ti" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M8 8a3 3 0 100-6 3 3 0 000 6zM2.5 14c0-3 2.5-4.8 5.5-4.8s5.5 1.8 5.5 4.8z"/></svg>Noah <small>9</small></a>
+<a class="d-tab" style="--c:#9065B0"><svg class="d-ti" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M8 8a3 3 0 100-6 3 3 0 000 6zM2.5 14c0-3 2.5-4.8 5.5-4.8s5.5 1.8 5.5 4.8z"/></svg>Ivy <small>7</small></a>
+<a class="d-tab" style="--c:#CB912F"><svg class="d-ti" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.8L1.8 7.2V14h4.4v-4h3.6v4h4.4V7.2z"/></svg>14 Alder St <small>38</small></a>
+<a class="d-tab" style="--c:#9F6B53"><svg class="d-ti" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.8L1.8 7.2V14h4.4v-4h3.6v4h4.4V7.2z"/></svg>Unit 5 <small>17</small></a>
+<a class="d-tab" style="--c:#787774"><svg class="d-ti" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M3.6 3.5h8.8l1.6 4.2V13h-2v-1.5H4V13H2V7.7zM4.6 5l-.9 2.5h8.6L11.4 5z"/></svg>Honda CR-V <small>12</small></a>
+<a class="d-tab add" aria-label="New tab"><svg class="d-ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M3 8h10"/></svg></a>
+</div>
+<div class="d-sheet files" style="border-radius:10px">
+<i class="d-hole" style="top:210px"></i><i class="d-hole" style="top:470px"></i>
+<div class="d-filters">
+<span class="d-chip on">All <small>31</small></span>
+<span class="d-chip need">Needs Claire <small>1</small></span>
+<span class="d-chip"><i style="background:#7A66D6"></i>Identity <small>7</small></span>
+<span class="d-chip"><i style="background:#3F7BE0"></i>Insurance <small>1</small></span>
+<span class="d-chip"><i style="background:#84932F"></i>Tax <small>11</small></span>
+<span class="d-chip"><i style="background:#3BA36A"></i>Income <small>12</small></span>
+</div>
+<div class="d-split">
+<div class="d-table">
+<div class="d-th"><span>Name</span><span>Category</span><span>Status</span><span>Expires or dated ↑</span></div>
+<div class="d-tr "><div><svg class="d-ic d-i3" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5l4.5 1.6v3.4c0 2.7-1.8 4.8-4.5 6-2.7-1.2-4.5-3.3-4.5-6V4.1zM6.2 8l1.3 1.3 2.4-2.6"/></svg><span>Car insurance policy</span></div><span>Insurance</span><span class="d-amb">Due in 13 days</span><span class="d-amb">30 Nov 2026</span></div>
+<div class="d-tr sel"><div><svg class="d-ic d-i1" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h8v11H4zM10 7a2 2 0 11-4 0 2 2 0 014 0zM6.5 11.2h3"/></svg><span>Passport</span></div><span>Identity</span><span class="d-blu">New one waiting for review</span><span class="">12 Mar 2027</span></div>
+<div class="d-tr "><div><svg class="d-ic d-i4" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h8v11l-1.3-1-1.4 1-1.3-1-1.3 1-1.4-1-1.3 1zM6.3 9.7l3.4-3.4M6.5 6.5v.01M9.5 9.5v.01"/></svg><span>Tax return, 2026</span></div><span>Tax</span><span class="d-mut">4 of 6 slips filed</span><span class="">30 Apr 2027</span></div>
+<div class="d-tr "><div><svg class="d-ic d-i1" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4h11v8h-11zM6.6 7.1a1.1 1.1 0 11-2.2 0 1.1 1.1 0 012.2 0zM4.2 10.2c.2-.8.7-1.2 1.3-1.2s1.1.4 1.3 1.2M9.2 7h2.6M9.2 9.4h2.6"/></svg><span>Health card</span></div><span>Identity</span><span class="d-mut">Valid</span><span class="">3 Sep 2027</span></div>
+<div class="d-tr "><div><svg class="d-ic d-i1" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4h11v8h-11zM6.6 7.1a1.1 1.1 0 11-2.2 0 1.1 1.1 0 012.2 0zM4.2 10.2c.2-.8.7-1.2 1.3-1.2s1.1.4 1.3 1.2M9.2 7h2.6M9.2 9.4h2.6"/></svg><span>Driver's licence</span></div><span>Identity</span><span class="d-mut">Valid</span><span class="">12 Apr 2029</span></div>
+<div class="d-tr old"><div><svg class="d-ic d-i5" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4.5h11v7h-11zM9.5 8a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM4.5 6.5v.01M11.5 9.5v.01"/></svg><span>Pay stub, October</span></div><span>Income</span><span class="d-mut">Filed</span><span class="">31 Oct 2026</span></div>
+<div class="d-tr old"><div><svg class="d-ic d-i5" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4.5h11v7h-11zM9.5 8a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM4.5 6.5v.01M11.5 9.5v.01"/></svg><span>Pay stub, September</span></div><span>Income</span><span class="d-mut">Filed</span><span class="">30 Sep 2026</span></div>
+<div class="d-tr old"><div><svg class="d-ic d-i4" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h8v11l-1.3-1-1.4 1-1.3-1-1.3 1-1.4-1-1.3 1zM6.3 9.7l3.4-3.4M6.5 6.5v.01M9.5 9.5v.01"/></svg><span>Notice of assessment, 2025</span></div><span>Tax</span><span class="d-mut">Filed</span><span class="">2 Jun 2026</span></div>
+<div class="d-tr old"><div><svg class="d-ic d-i4" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h8v11l-1.3-1-1.4 1-1.3-1-1.3 1-1.4-1-1.3 1zM6.3 9.7l3.4-3.4M6.5 6.5v.01M9.5 9.5v.01"/></svg><span>T4 slip, 2025</span></div><span>Tax</span><span class="d-mut">Filed</span><span class="">Tax year 2025</span></div>
+<div class="d-tr old"><div><svg class="d-ic d-i4" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h8v11l-1.3-1-1.4 1-1.3-1-1.3 1-1.4-1-1.3 1zM6.3 9.7l3.4-3.4M6.5 6.5v.01M9.5 9.5v.01"/></svg><span>T5 slip, 2025</span></div><span>Tax</span><span class="d-mut">Filed</span><span class="">Tax year 2025</span></div>
+<div class="d-tr old"><div><svg class="d-ic d-i1" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h5.5L12 5v8.5H4zM9.5 2.5V5H12M6 8h4M6 10.5h3"/></svg><span>Birth certificate</span></div><span>Identity</span><span class="d-mut">Filed</span><span class="">No expiry</span></div>
+<div class="d-tr old"><div><svg class="d-ic d-i1" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h5.5L12 5v8.5H4zM9.5 2.5V5H12M6 8h4M6 10.5h3"/></svg><span>Marriage certificate</span></div><span>Identity</span><span class="d-mut">Filed</span><span class="">No expiry</span></div>
+<div class="d-tr old"><div><svg class="d-ic d-i1" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h5.5L12 5v8.5H4zM9.5 2.5V5H12M6 8h4M6 10.5h3"/></svg><span>SIN confirmation letter</span></div><span>Identity</span><span class="d-mut">Filed</span><span class="">No expiry</span></div>
+<div class="d-tfoot">Showing 13 of 31, soonest first</div>
+</div>
+<aside class="d-insp">
+<div class="d-prev">
+<div class="d-prev-top"><span>Passport</span><span>Specimen</span></div>
+<div style="display:flex;gap:12px"><div class="d-face"></div><div style="display:flex;flex-direction:column;gap:6px"><div><small>Name</small><b>BENNETT, CLAIRE ANNE</b></div><div><small>Number</small><span class="n">UT3310952</span></div><div><small>Expires</small><b>12 MAR 2027</b></div></div></div>
+</div>
+<div><div class="d-ttl">Passport</div><div class="d-blu" style="padding-top:3px">Her new passport is waiting for review</div></div>
+<dl class="d-kv">
+<dt>Category</dt><dd>Identity</dd>
+<dt>Expires</dt><dd>12 March 2027</dd>
+<dt>Reminder</dt><dd>On the Family calendar</dd>
+<dt>Used in</dt><dd><a class="d-lnk">Mortgage application packet</a></dd>
+<dt>File</dt><dd style="color:#6B6A66">Claire - Passport - exp 2027-03-12.pdf</dd>
+</dl>
+<div class="d-btns"><span class="d-btn pri" style="flex:2">Check the new one</span><span class="d-btn">Open</span></div>
+</aside>
+</div>
+</div>
+</div></div></div>
+</section>
+
+<section id="packets">
+  <div class="head2">
+    <h2>The bank wants 14 documents. You have 12, and Kept knows which two.</h2>
+    <p class="lead">A packet is everything one application asks for. Start one for a mortgage, a tax filing, a rental or a passport renewal. Kept fills it from your drawer with the newest valid copy of each document and lists what is expiring or missing.</p>
+  </div>
+  <div class="shot mt" data-crop-sm="28,100,600,440" role="img" aria-label="A mortgage application packet in Kept: fourteen required documents grouped into identity, income and property, twelve ready, one expiring in 15 days and one missing."><div class="shot-in" aria-hidden="true"><div class="d-win">
+<div class="d-top">
+<div class="d-lights"><i style="background:#FF5F57"></i><i style="background:#FEBC2E"></i><i style="background:#28C840"></i></div>
+<div class="d-plate">Kept <b>/</b> Packets <b>/</b> Mortgage application</div>
+<nav class="d-links" aria-label="Sections"><a ><svg class="d-ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h5.5L12 5v8.5H4zM9.5 2.5V5H12M6 8h4M6 10.5h3"/></svg>Documents</a><a ><svg class="d-ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 9.5l2-6h7l2 6v4h-11zM2.5 9.5h3.2l.8 1.5h3l.8-1.5h3.2"/></svg>To review <b>2</b></a><a class="on"><svg class="d-ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4.5h4l1.2 1.5h5.8v7h-11zM6 9.5l1.5 1.5L10 8.2"/></svg>Packets <b>1</b></a></nav>
+<div class="d-find"><svg class="d-ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M7 12A5 5 0 107 2a5 5 0 000 10zM11 11l3 3"/></svg><span>Find in this packet</span></div>
+<span class="d-file">File a document</span>
+</div>
+<div class="d-tabs">
+<a class="d-tab" style="--c:#8F8E89"><svg class="d-ti" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M1.8 3.5h4.6l1.3 1.6h6.5V13H1.8z"/></svg>All packets <small>1</small></a>
+<a class="d-tab on" style="--c:#0B63F6"><svg class="d-ti" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M1.8 3.5h4.6l1.3 1.6h6.5V13H1.8z"/></svg>Mortgage application <small>12 of 14</small></a>
+<a class="d-tab add" aria-label="New packet"><svg class="d-ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M3 8h10"/></svg></a>
+</div>
+<div class="d-sheet files" style="border-radius:10px">
+<i class="d-hole" style="top:210px"></i><i class="d-hole" style="top:470px"></i>
+<div class="d-filters">
+<span class="d-chip on">All <small>14</small></span>
+<span class="d-chip">Ready <small>12</small></span>
+<span class="d-chip need">Needs attention <small>2</small></span>
+</div>
+<div class="d-split">
+<div class="d-table">
+<div class="d-th d-pr"><span>The lender asks for</span><span>Kept is using</span><span>Belongs to</span><span>Status</span></div>
+<div class="d-sub">Identity <span>3 of 4</span></div>
+<div class="d-tr d-pr"><div><svg class="d-ic d-i1" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h8v11H4zM10 7a2 2 0 11-4 0 2 2 0 014 0zM6.5 11.2h3"/></svg><span>Passport</span></div><span class="d-mut">Expires 12 Mar 2027</span><span>Claire</span><span class="d-ok">Ready</span></div>
+<div class="d-tr d-pr"><div><svg class="d-ic d-i1" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4h11v8h-11zM6.6 7.1a1.1 1.1 0 11-2.2 0 1.1 1.1 0 012.2 0zM4.2 10.2c.2-.8.7-1.2 1.3-1.2s1.1.4 1.3 1.2M9.2 7h2.6M9.2 9.4h2.6"/></svg><span>Driver's licence</span></div><span class="d-mut">Expires 12 Apr 2029</span><span>Claire</span><span class="d-ok">Ready</span></div>
+<div class="d-tr d-pr"><div><svg class="d-ic d-i1" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h8v11H4zM10 7a2 2 0 11-4 0 2 2 0 014 0zM6.5 11.2h3"/></svg><span>Passport</span></div><span class="d-mut">Expires 20 Sep 2031</span><span>Daniel</span><span class="d-ok">Ready</span></div>
+<div class="d-tr d-pr sel"><div><svg class="d-ic d-i1" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4h11v8h-11zM6.6 7.1a1.1 1.1 0 11-2.2 0 1.1 1.1 0 012.2 0zM4.2 10.2c.2-.8.7-1.2 1.3-1.2s1.1.4 1.3 1.2M9.2 7h2.6M9.2 9.4h2.6"/></svg><span>Driver's licence</span></div><span class="d-mut">Expires 2 Dec 2026</span><span>Daniel</span><span class="d-amb">Expires in 15 days</span></div>
+<div class="d-sub">Income <span>5 of 6</span></div>
+<div class="d-tr d-pr"><div><svg class="d-ic d-i4" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h8v11l-1.3-1-1.4 1-1.3-1-1.3 1-1.4-1-1.3 1zM6.3 9.7l3.4-3.4M6.5 6.5v.01M9.5 9.5v.01"/></svg><span>T4 slip, 2025</span></div><span class="d-mut">Tax year 2025</span><span>Claire</span><span class="d-ok">Ready</span></div>
+<div class="d-tr d-pr"><div><svg class="d-ic d-i4" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h8v11l-1.3-1-1.4 1-1.3-1-1.3 1-1.4-1-1.3 1zM6.3 9.7l3.4-3.4M6.5 6.5v.01M9.5 9.5v.01"/></svg><span>T4 slip, 2025</span></div><span class="d-mut">Tax year 2025</span><span>Daniel</span><span class="d-ok">Ready</span></div>
+<div class="d-tr d-pr"><div><svg class="d-ic d-i4" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h8v11l-1.3-1-1.4 1-1.3-1-1.3 1-1.4-1-1.3 1zM6.3 9.7l3.4-3.4M6.5 6.5v.01M9.5 9.5v.01"/></svg><span>Notice of assessment, 2025</span></div><span class="d-mut">Issued 2 Jun 2026</span><span>Claire</span><span class="d-ok">Ready</span></div>
+<div class="d-tr d-pr"><div><svg class="d-ic d-i4" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h8v11l-1.3-1-1.4 1-1.3-1-1.3 1-1.4-1-1.3 1zM6.3 9.7l3.4-3.4M6.5 6.5v.01M9.5 9.5v.01"/></svg><span>Notice of assessment, 2025</span></div><span class="d-mut">Issued 28 May 2026</span><span>Daniel</span><span class="d-ok">Ready</span></div>
+<div class="d-tr d-pr"><div><svg class="d-ic d-i5" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4.5h11v7h-11zM9.5 8a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM4.5 6.5v.01M11.5 9.5v.01"/></svg><span>Recent pay stub</span></div><span class="d-mut">31 Oct 2026</span><span>Claire</span><span class="d-ok">Ready</span></div>
+<div class="d-tr d-pr"><div><svg class="d-ic d-i5" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4.5h11v7h-11zM9.5 8a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM4.5 6.5v.01M11.5 9.5v.01"/></svg><span>Recent pay stub</span></div><span class="d-mut">Newest on file is from August</span><span>Daniel</span><span class="d-red">Missing</span></div>
+<div class="d-sub">Property <span>4 of 4</span></div>
+<div class="d-tr d-pr"><div><svg class="d-ic d-i4" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h8v11l-1.3-1-1.4 1-1.3-1-1.3 1-1.4-1-1.3 1zM6.3 9.7l3.4-3.4M6.5 6.5v.01M9.5 9.5v.01"/></svg><span>Property tax bill, 2026</span></div><span class="d-mut">Next payment 1 Mar 2027</span><span>14 Alder Street</span><span class="d-ok">Ready</span></div>
+<div class="d-tr d-pr"><div><svg class="d-ic d-i3" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5l4.5 1.6v3.4c0 2.7-1.8 4.8-4.5 6-2.7-1.2-4.5-3.3-4.5-6V4.1zM6.2 8l1.3 1.3 2.4-2.6"/></svg><span>Home insurance policy</span></div><span class="d-mut">Renews 14 Feb 2027</span><span>14 Alder Street</span><span class="d-ok">Ready</span></div>
+<div class="d-tr d-pr"><div><svg class="d-ic d-i4" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h5.5L12 5v8.5H4zM9.5 2.5V5H12M6 11.5V9l2-1.6L10 9v2.5z"/></svg><span>Mortgage statement, 2025</span></div><span class="d-mut">Tax year 2025</span><span>14 Alder Street</span><span class="d-ok">Ready</span></div>
+<div class="d-tr d-pr"><div><svg class="d-ic d-i2" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h5.5L12 5v8.5H4zM9.5 2.5V5H12M5.8 11c.7-1.4 1.2-1.4 1.6-.2.3 1 .8 1 2.6-.6"/></svg><span>Lease, as rental income</span></div><span class="d-mut">Ends 31 Jan 2027</span><span>Unit 5, 220 Wren Ave</span><span class="d-ok">Ready</span></div>
+</div>
+<aside class="d-insp">
+<div><div class="d-ttl">Mortgage application</div><div class="d-mut" style="font-size:13px;padding-top:3px">For Claire and Daniel · 14 Alder Street</div></div>
+<div><div class="d-meter"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="s"></i><i class="m"></i></div><div style="font-size:13px;padding-top:8px"><b style="font-weight:600">12 of 14 ready</b></div></div>
+<div class="d-hr"></div>
+<div class="d-ttl" style="font-size:15px">Two things left</div>
+<div class="d-gap"><div><b>Daniel's driver's licence</b><span class="d-amb">Expires in 15 days. A lender may not accept it.</span></div><span class="d-btn sm">Open</span></div>
+<div class="d-gap"><div><b>Daniel's recent pay stub</b><span class="d-red">Missing. The newest is from August.</span></div></div>
+<div class="d-dropz">Drop the pay stub here</div>
+<div class="d-btns"><a class="d-btn pri" style="display:inline-flex;align-items:center;justify-content:center;color:#fff">Export packet</a><span class="d-btn">Show in Finder</span></div>
+</aside>
+</div>
+</div>
+
+</div></div></div>
+  <div class="steps" style="margin-top:clamp(40px,6vw,80px)">
+    <div class="step flip">
+      <div class="txt"><h3>Export it as one PDF</h3><p>The export has a cover page that lists every document and marks anything still missing. You can also export a folder of files.</p></div>
+      <div class="shot" style="--r:14px" data-crop="250,120,780,560" role="img" aria-label="The export dialog, showing a cover page with an index of the packet and options for one PDF or a folder."><div class="shot-in" aria-hidden="true"><div class="d-win">
+<div class="d-top">
+<div class="d-lights"><i style="background:#FF5F57"></i><i style="background:#FEBC2E"></i><i style="background:#28C840"></i></div>
+<div class="d-plate">Kept <b>/</b> Packets <b>/</b> Mortgage application</div>
+<nav class="d-links" aria-label="Sections"><a ><svg class="d-ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h5.5L12 5v8.5H4zM9.5 2.5V5H12M6 8h4M6 10.5h3"/></svg>Documents</a><a ><svg class="d-ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 9.5l2-6h7l2 6v4h-11zM2.5 9.5h3.2l.8 1.5h3l.8-1.5h3.2"/></svg>To review <b>2</b></a><a class="on"><svg class="d-ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4.5h4l1.2 1.5h5.8v7h-11zM6 9.5l1.5 1.5L10 8.2"/></svg>Packets <b>1</b></a></nav>
+<div class="d-find"><svg class="d-ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M7 12A5 5 0 107 2a5 5 0 000 10zM11 11l3 3"/></svg><span>Find in this packet</span></div>
+<span class="d-file">File a document</span>
+</div>
+<div class="d-tabs">
+<a class="d-tab" style="--c:#8F8E89"><svg class="d-ti" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M1.8 3.5h4.6l1.3 1.6h6.5V13H1.8z"/></svg>All packets <small>1</small></a>
+<a class="d-tab on" style="--c:#0B63F6"><svg class="d-ti" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M1.8 3.5h4.6l1.3 1.6h6.5V13H1.8z"/></svg>Mortgage application <small>12 of 14</small></a>
+<a class="d-tab add" aria-label="New packet"><svg class="d-ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M3 8h10"/></svg></a>
+</div>
+<div class="d-sheet files" style="border-radius:10px">
+<i class="d-hole" style="top:210px"></i><i class="d-hole" style="top:470px"></i>
+<div class="d-filters">
+<span class="d-chip on">All <small>14</small></span>
+<span class="d-chip">Ready <small>12</small></span>
+<span class="d-chip need">Needs attention <small>2</small></span>
+</div>
+<div class="d-split">
+<div class="d-table">
+<div class="d-th d-pr"><span>The lender asks for</span><span>Kept is using</span><span>Belongs to</span><span>Status</span></div>
+<div class="d-sub">Identity <span>3 of 4</span></div>
+<div class="d-tr d-pr"><div><svg class="d-ic d-i1" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h8v11H4zM10 7a2 2 0 11-4 0 2 2 0 014 0zM6.5 11.2h3"/></svg><span>Passport</span></div><span class="d-mut">Expires 12 Mar 2027</span><span>Claire</span><span class="d-ok">Ready</span></div>
+<div class="d-tr d-pr"><div><svg class="d-ic d-i1" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4h11v8h-11zM6.6 7.1a1.1 1.1 0 11-2.2 0 1.1 1.1 0 012.2 0zM4.2 10.2c.2-.8.7-1.2 1.3-1.2s1.1.4 1.3 1.2M9.2 7h2.6M9.2 9.4h2.6"/></svg><span>Driver's licence</span></div><span class="d-mut">Expires 12 Apr 2029</span><span>Claire</span><span class="d-ok">Ready</span></div>
+<div class="d-tr d-pr"><div><svg class="d-ic d-i1" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h8v11H4zM10 7a2 2 0 11-4 0 2 2 0 014 0zM6.5 11.2h3"/></svg><span>Passport</span></div><span class="d-mut">Expires 20 Sep 2031</span><span>Daniel</span><span class="d-ok">Ready</span></div>
+<div class="d-tr d-pr sel"><div><svg class="d-ic d-i1" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4h11v8h-11zM6.6 7.1a1.1 1.1 0 11-2.2 0 1.1 1.1 0 012.2 0zM4.2 10.2c.2-.8.7-1.2 1.3-1.2s1.1.4 1.3 1.2M9.2 7h2.6M9.2 9.4h2.6"/></svg><span>Driver's licence</span></div><span class="d-mut">Expires 2 Dec 2026</span><span>Daniel</span><span class="d-amb">Expires in 15 days</span></div>
+<div class="d-sub">Income <span>5 of 6</span></div>
+<div class="d-tr d-pr"><div><svg class="d-ic d-i4" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h8v11l-1.3-1-1.4 1-1.3-1-1.3 1-1.4-1-1.3 1zM6.3 9.7l3.4-3.4M6.5 6.5v.01M9.5 9.5v.01"/></svg><span>T4 slip, 2025</span></div><span class="d-mut">Tax year 2025</span><span>Claire</span><span class="d-ok">Ready</span></div>
+<div class="d-tr d-pr"><div><svg class="d-ic d-i4" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h8v11l-1.3-1-1.4 1-1.3-1-1.3 1-1.4-1-1.3 1zM6.3 9.7l3.4-3.4M6.5 6.5v.01M9.5 9.5v.01"/></svg><span>T4 slip, 2025</span></div><span class="d-mut">Tax year 2025</span><span>Daniel</span><span class="d-ok">Ready</span></div>
+<div class="d-tr d-pr"><div><svg class="d-ic d-i4" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h8v11l-1.3-1-1.4 1-1.3-1-1.3 1-1.4-1-1.3 1zM6.3 9.7l3.4-3.4M6.5 6.5v.01M9.5 9.5v.01"/></svg><span>Notice of assessment, 2025</span></div><span class="d-mut">Issued 2 Jun 2026</span><span>Claire</span><span class="d-ok">Ready</span></div>
+<div class="d-tr d-pr"><div><svg class="d-ic d-i4" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h8v11l-1.3-1-1.4 1-1.3-1-1.3 1-1.4-1-1.3 1zM6.3 9.7l3.4-3.4M6.5 6.5v.01M9.5 9.5v.01"/></svg><span>Notice of assessment, 2025</span></div><span class="d-mut">Issued 28 May 2026</span><span>Daniel</span><span class="d-ok">Ready</span></div>
+<div class="d-tr d-pr"><div><svg class="d-ic d-i5" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4.5h11v7h-11zM9.5 8a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM4.5 6.5v.01M11.5 9.5v.01"/></svg><span>Recent pay stub</span></div><span class="d-mut">31 Oct 2026</span><span>Claire</span><span class="d-ok">Ready</span></div>
+<div class="d-tr d-pr"><div><svg class="d-ic d-i5" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4.5h11v7h-11zM9.5 8a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM4.5 6.5v.01M11.5 9.5v.01"/></svg><span>Recent pay stub</span></div><span class="d-mut">Newest on file is from August</span><span>Daniel</span><span class="d-red">Missing</span></div>
+<div class="d-sub">Property <span>4 of 4</span></div>
+<div class="d-tr d-pr"><div><svg class="d-ic d-i4" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h8v11l-1.3-1-1.4 1-1.3-1-1.3 1-1.4-1-1.3 1zM6.3 9.7l3.4-3.4M6.5 6.5v.01M9.5 9.5v.01"/></svg><span>Property tax bill, 2026</span></div><span class="d-mut">Next payment 1 Mar 2027</span><span>14 Alder Street</span><span class="d-ok">Ready</span></div>
+<div class="d-tr d-pr"><div><svg class="d-ic d-i3" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5l4.5 1.6v3.4c0 2.7-1.8 4.8-4.5 6-2.7-1.2-4.5-3.3-4.5-6V4.1zM6.2 8l1.3 1.3 2.4-2.6"/></svg><span>Home insurance policy</span></div><span class="d-mut">Renews 14 Feb 2027</span><span>14 Alder Street</span><span class="d-ok">Ready</span></div>
+<div class="d-tr d-pr"><div><svg class="d-ic d-i4" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h5.5L12 5v8.5H4zM9.5 2.5V5H12M6 11.5V9l2-1.6L10 9v2.5z"/></svg><span>Mortgage statement, 2025</span></div><span class="d-mut">Tax year 2025</span><span>14 Alder Street</span><span class="d-ok">Ready</span></div>
+<div class="d-tr d-pr"><div><svg class="d-ic d-i2" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h5.5L12 5v8.5H4zM9.5 2.5V5H12M5.8 11c.7-1.4 1.2-1.4 1.6-.2.3 1 .8 1 2.6-.6"/></svg><span>Lease, as rental income</span></div><span class="d-mut">Ends 31 Jan 2027</span><span>Unit 5, 220 Wren Ave</span><span class="d-ok">Ready</span></div>
+</div>
+<aside class="d-insp">
+<div><div class="d-ttl">Mortgage application</div><div class="d-mut" style="font-size:13px;padding-top:3px">For Claire and Daniel · 14 Alder Street</div></div>
+<div><div class="d-meter"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="s"></i><i class="m"></i></div><div style="font-size:13px;padding-top:8px"><b style="font-weight:600">12 of 14 ready</b></div></div>
+<div class="d-hr"></div>
+<div class="d-ttl" style="font-size:15px">Two things left</div>
+<div class="d-gap"><div><b>Daniel's driver's licence</b><span class="d-amb">Expires in 15 days. A lender may not accept it.</span></div><span class="d-btn sm">Open</span></div>
+<div class="d-gap"><div><b>Daniel's recent pay stub</b><span class="d-red">Missing. The newest is from August.</span></div></div>
+<div class="d-dropz">Drop the pay stub here</div>
+<div class="d-btns"><a class="d-btn pri" style="display:inline-flex;align-items:center;justify-content:center;color:#fff">Export packet</a><span class="d-btn">Show in Finder</span></div>
+</aside>
+</div>
+</div>
+<div class="d-dim"></div>
+<div class="d-modal" role="dialog" aria-label="Export packet">
+<div class="d-cover">
+<div class="d-cover-t">Mortgage application</div>
+<div class="d-cover-s">Claire and Daniel Bennett · 14 Alder Street · 17 November 2026</div>
+<div class="d-cover-i"><div class="g">Identity</div><div class=""><span>Passport, Claire</span><i></i><span>1</span></div><div class=""><span>Driver's licence, Claire</span><i></i><span>3</span></div><div class=""><span>Passport, Daniel</span><i></i><span>4</span></div><div class=""><span>Driver's licence, Daniel</span><i></i><span>6</span></div><div class="g">Income</div><div class=""><span>T4 slips, 2025</span><i></i><span>7</span></div><div class=""><span>Notices of assessment, 2025</span><i></i><span>9</span></div><div class=""><span>Pay stub, Claire</span><i></i><span>13</span></div><div class="x"><span>Pay stub, Daniel</span><i></i><span>missing</span></div><div class="g">Property</div><div class=""><span>Property tax bill, 2026</span><i></i><span>14</span></div><div class=""><span>Home insurance policy</span><i></i><span>16</span></div><div class=""><span>Mortgage statement, 2025</span><i></i><span>24</span></div><div class=""><span>Lease, Unit 5</span><i></i><span>27</span></div></div>
+<div class="d-cover-s" style="margin-top:auto">Cover page · 1 of 38</div>
+</div>
+<div class="d-mopts">
+<div class="d-ttl">Export packet</div>
+<div><label>Format</label><div class="d-seg"><span class="on">One PDF</span><span>Folder of files</span></div></div>
+<div><label>Include</label>
+<div class="d-check on">Cover page with an index</div>
+<div class="d-check on">Page numbers</div>
+<div class="d-check on">List the 1 missing document on the cover</div>
+<div class="d-check">Password-protect the PDF</div></div>
+<div><label>Save as</label><div class="d-field">Mortgage application - Bennett.pdf</div><div class="d-mut" style="font-size:12.5px;padding-top:6px">38 pages, saved to your Mac. Nothing is uploaded.</div></div>
+<div class="d-btns"><a class="d-btn" style="display:inline-flex;align-items:center;justify-content:center">Cancel</a><span class="d-btn pri">Export</span></div>
+</div>
+</div>
+</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="features">
+  <div class="also" style="margin-top:0">
+    <h2>Other things it does</h2>
+    <div class="rows">
+      <div><h3>Search inside scans</h3><p>Search for a policy number or a name and Kept finds it in the text of the scan, not only in file names.</p></div>
+      <div><h3>Renewals replace the old copy</h3><p>When you file a new licence, the old one moves to the archive and the reminder moves to the new expiry date.</p></div>
+      <div><h3>Missing documents are flagged</h3><p>If an application needs a recent pay stub and your newest is from August, Kept says so.</p></div>
+      <div><h3>Ordinary files in Finder</h3><p>Documents are saved as clearly named PDFs in a folder you choose. If you stop using Kept, the files are still there.</p></div>
+    </div>
+  </div>
+</section>
+</div>
+
+<div class="band" id="privacy">
+  <div class="wrap">
+    <div>
+      <h2>Your passport is not going to anyone's cloud.</h2>
+      <p>These are some of the most sensitive files you own. Kept reads them with the text recognition built into macOS, on your own machine, and has no server to send them to.</p>
+      <p class="proof">You can check this with any network monitor. Kept makes no connections.</p>
+    </div>
+    <ul class="facts">
+      <li><div><b>Read on your Mac</b><span>Text recognition runs on-device. No AI service sees your documents.</span></div></li>
+      <li><div><b>No account</b><span>There is no sign-up, so Kept holds no information about you.</span></div></li>
+      <li><div><b>No internet permission</b><span>Kept ships without network access, and macOS enforces that. Purchases and updates go through the App Store, and calendar sync is done by macOS.</span></div></li>
+      <li><div><b>Protected by your Mac</b><span>Your documents sit on your own disk, protected by your Mac login, and by FileVault if you use it. Touch ID can lock the app.</span></div></li>
+    </ul>
+  </div>
+</div>
+
+<div class="wrap">
+<section id="compare">
+  <div class="head2">
+    <h2>Compared with a folder and a spreadsheet</h2>
+  </div>
+  <table>
+    <thead><tr><th></th><th>What you do now</th><th>Kept</th></tr></thead>
+    <tbody>
+      <tr><td>Getting dates off the document</td><td>You type every one</td><td>Kept reads them</td></tr>
+      <tr><td>Reminders before expiry</td><td>If you remember to add them</td><td>Automatic, on your calendar</td></tr>
+      <tr><td>When a renewal arrives</td><td>Update the folder, the spreadsheet and the reminder</td><td>Drop it in and the old one is archived</td></tr>
+      <tr><td>A mortgage packet</td><td>A weekend of digging</td><td>Kept assembles it and flags the gaps</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="why">
+  <div class="note">
+    <h2>Why this exists</h2>
+    <div>
+      <p>I look after the paperwork for my family: our IDs, a couple of properties and their leases, the car, the insurance and the tax slips. Nearly all of it expires or renews, and I had no reliable way to be reminded.</p>
+      <p>When a mortgage application asked for most of it at once, I went looking for an app that would file documents as I dropped them in, put the renewals on my calendar and not make me fill in forms. I couldn't find one that kept everything on my own Mac, so I built Kept.</p>
+      <p class="sig">Nadim, maker of Kept</p>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="head2">
+    <h2>Pricing</h2>
+  </div>
+  <div class="price">
+    <div style="display:flex;flex-direction:column;gap:20px;align-items:flex-start">
+      <div class="big">$39<small>USD, once</small></div>
+      <a class="btn" href="#top"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11.2l-3.6-3.6L7 12l5 5 5-5-1.4-1.4-3.6 3.6V3zM5 19h14v2H5z"/></svg>Download for Mac</a>
+      <span class="fine">Free for 14 days. macOS 14 or later, Apple silicon and Intel.</span>
+    </div>
+    <ul>
+      <li>No subscription</li>
+      <li>Unlimited documents and tabs</li>
+      <li>Mortgage, tax, rental and passport-renewal packets</li>
+      <li>Works with iCloud, Google and Exchange calendars</li>
+      <li>Light and dark mode</li>
+    </ul>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="faqgrid">
+  <h2>Questions</h2>
+  <div class="faq">
+    <details open><summary>What if Kept reads a date wrong?</summary><p>Nothing is filed until you confirm it. Kept highlights each value on the page where it found it, so a wrong date is easy to spot, and you can fix a single field before pressing Return. Passports get a second check against the machine-readable lines at the bottom.</p></details>
+    <details><summary>If it has no internet access, how do I pay and get updates?</summary><p>Through the Mac App Store. The store handles payment and updates, so Kept itself never needs to go online. Calendar events sync the same way: Kept hands them to the Mac's Calendar, and macOS syncs them to iCloud, Google or Exchange.</p></details>
+    <details><summary>Does it work with documents from my country?</summary><p>Version 1 is tuned for Canadian documents, and US formats are next. Passports from any country work, because they share one international layout. Anything Kept doesn't recognise is still filed and searchable, and you can set its date once by hand.</p></details>
+    <details><summary>Can I add tabs for other things, like a business or a pet?</summary><p>Yes. Add a tab, name it, and pick an icon and a colour. Documents you file under it get their own reminders like everything else.</p></details>
+    <details><summary>What if my Documents folder syncs to iCloud?</summary><p>Then Apple syncs it, as it does your other files. Kept itself sends nothing. If you want everything fully local, pick a folder outside iCloud Drive.</p></details>
+    <details><summary>Is there an iPhone app?</summary><p>Not yet. Reminders reach your phone through your calendar, and you can scan with your iPhone's camera straight into Kept on the Mac.</p></details>
+    <details><summary>What happens when version 2 comes out?</summary><p>Your copy keeps working, with every version 1 update. A future version 2 would be an optional paid upgrade.</p></details>
+  </div>
+  </div>
+</section>
+
+<div class="final" style="display:block">
+  <h2>Try Kept free for 14 days.</h2>
+  <div class="cta"><a class="btn" href="#pricing"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11.2l-3.6-3.6L7 12l5 5 5-5-1.4-1.4-3.6 3.6V3zM5 19h14v2H5z"/></svg>Download for Mac</a><span class="fine">Then US$39, once. No account needed.</span></div>
+</div>
+<footer><span>Kept for Mac</span><span>The people, addresses and documents shown are fictional samples.</span></footer>
+</div>
+
+<script>
+(function(){
+  function fit(){document.querySelectorAll('.shot').forEach(function(s){var c=((window.innerWidth<700&&s.dataset.cropSm)||s.dataset.crop||'0,0,1280,800').split(',').map(Number);s.style.aspectRatio=c[2]+'/'+c[3];var w=s.clientWidth;if(w){s.style.setProperty('--s',w/c[2]);s.style.setProperty('--x',-c[0]+'px');s.style.setProperty('--y',-c[1]+'px')}})}
+  fit();window.addEventListener('resize',fit);
+  // dark mode switch: follows the system until the visitor picks; the choice is remembered in this browser
+  (function(){var root=document.documentElement,btn=document.getElementById('theme'),mq=matchMedia('(prefers-color-scheme: dark)'),saved=null;
+    try{saved=localStorage.getItem('kept-theme')}catch(e){}
+    function dark(){var t=root.getAttribute('data-theme');return t==='dark'||(t!=='light'&&mq.matches)}
+    function paint(){var d=dark();btn.setAttribute('aria-pressed',d);btn.setAttribute('aria-label',d?'Switch to light mode':'Switch to dark mode');
+      document.querySelectorAll('.hero .d-win,#tabs .d-win').forEach(function(w){w.classList.toggle('dark',d)});
+      document.dispatchEvent(new Event('kept-theme'))}
+    if(saved==='dark'||saved==='light')root.setAttribute('data-theme',saved);
+    btn.addEventListener('click',function(){var t=dark()?'light':'dark';root.setAttribute('data-theme',t);try{localStorage.setItem('kept-theme',t)}catch(e){}paint()});
+    try{mq.addEventListener('change',paint)}catch(e){}
+    paint()})();
+  // scroll reveals: only hide things when we know we can show them again
+  if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion:reduce)').matches){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
+    document.querySelectorAll('section .head2,section .step,section .stepfull,section .demo,section>.shot,section .also,section table,section .note,section .price,section .faqgrid,.band .wrap>*,.final').forEach(function(el){
+      if(el.getBoundingClientRect().top>window.innerHeight*.9){el.classList.add('reveal');io.observe(el)}});
+  }
+  if(window.ResizeObserver){var ro=new ResizeObserver(fit);document.querySelectorAll('.shot').forEach(function(s){ro.observe(s)})}
+
+  var tabs=[].slice.call(document.querySelectorAll('.tab'));
+  function show(i){tabs.forEach(function(t,j){t.setAttribute('aria-selected',j===i?'true':'false');document.getElementById('panel-'+j).classList.toggle('on',j===i)})}
+  tabs.forEach(function(t,i){t.addEventListener('click',function(){show(i)})});
+
+  var D={
+   passport:{text:'PASSPORT · PASSEPORT &nbsp; UTO<br>Surname / Given names<br><mark class="who">BENNETT, CLAIRE ANNE</mark><br>Passport no. UT4829107<br>Date of issue 03 NOV 2026<br>Date of expiry <mark>03 NOV 2036</mark><br>P&lt;UTOBENNETT&lt;&lt;CLAIRE&lt;ANNE&lt;&lt;&lt;&lt;&lt;&lt;',type:'Passport',who:'Claire',date:'Expires 3 Nov 2036',file:'Claire - Passport - exp 2036-11-03.pdf',mon:'Feb',day:'3',ev:"Renew Claire's passport",when:'3 Feb 2036, nine months before it expires'},
+   lease:{text:'RESIDENTIAL TENANCY AGREEMENT<br>Rental unit: <mark class="who">Unit 5, 220 Wren Avenue</mark><br>Landlord: C. Bennett and D. Bennett<br>Tenant: Rachel Osei<br>Term begins 1 February 2027<br>Term ends <mark>31 January 2028</mark><br>Rent $2,450 payable monthly',type:'Residential lease',who:'Unit 5, 220 Wren Ave',date:'Ends 31 Jan 2028',file:'Unit 5 - Lease - ends 2028-01-31.pdf',mon:'Dec',day:'2',ev:'Lease renewal notice due',when:'2 Dec 2027, sixty days before the lease ends'},
+   auto:{text:'NORTHBRIDGE MUTUAL<br>Automobile policy declaration<br>Policy number AX-2291-7740<br>Named insured: Daniel Bennett<br>Vehicle: <mark class="who">2021 Honda CR-V</mark><br>Effective 30 NOV 2026<br>Expires <mark>30 NOV 2027</mark> 12:01 a.m.',type:'Auto insurance policy',who:'2021 CR-V, and Daniel',date:'Policy ends 30 Nov 2027',file:'CR-V - Auto insurance - ends 2027-11-30.pdf',mon:'Oct',day:'31',ev:'Auto insurance renews soon',when:'31 Oct 2027, thirty days before the policy ends'}
+  };
+  var paper=document.getElementById('paper');
+  function set(id,v){document.getElementById(id).textContent=v}
+  document.querySelectorAll('.pick').forEach(function(b){b.addEventListener('click',function(){
+    document.querySelectorAll('.pick').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
+    var d=D[b.dataset.k];document.getElementById('paper-text').innerHTML=d.text;
+    set('o-type',d.type);set('o-who',d.who);set('o-date',d.date);set('o-file',d.file);set('o-mon',d.mon);set('o-day',d.day);set('o-ev',d.ev);set('o-when',d.when);
+    paper.classList.remove('scan');void paper.offsetWidth;paper.classList.add('scan');
+  })});
+})();
+</script>
+
+</body>
+</html>
