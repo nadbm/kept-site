@@ -95,6 +95,117 @@ nav .links a:hover{color:var(--ink)}
 .filetabs span:nth-child(odd){height:46px}
 .filetabs span:nth-child(3n){height:42px}
 .hero .shot{z-index:1}
+/* Hero graphic: one document at a time is dropped, read and filed into the stitched pocket, and a reminder lands on the calendar. 12-second loop. */
+.story{display:grid;grid-template-columns:minmax(0,.74fr) 28px minmax(0,1.55fr) 28px minmax(0,.95fr);gap:clamp(8px,1.6vw,22px);align-items:center;position:relative;z-index:1;color:var(--on-stage);padding-block:clamp(6px,1.4vw,18px)}
+.st-col{display:flex;flex-direction:column;align-items:center;gap:18px;min-width:0}
+.st-cap{font:600 13.5px/1.3 var(--body);color:color-mix(in srgb,var(--on-stage) 72%,transparent);text-align:center}
+.st-cap b{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;border:1px solid currentColor;font:600 11px/1 var(--mono);margin-right:8px;vertical-align:1px}
+.st-arrow{width:28px;height:28px;color:color-mix(in srgb,var(--on-stage) 45%,transparent);align-self:center;margin-bottom:38px}
+.st-arrow svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.st-papers{position:relative;width:min(100%,270px);height:286px}
+.st-paper{position:absolute;inset:0;background:#FDFCF9;color:#1F2A3A;border-radius:10px;padding:20px 18px;font:500 11.5px/1.9 var(--mono);box-shadow:0 18px 40px rgba(0,0,0,.28);overflow:hidden;opacity:0;transform-origin:50% 50%}
+.st-paper h4{margin:0 0 8px;font:600 10px/1.4 var(--body);letter-spacing:.1em;text-transform:uppercase;color:#62645F}
+.st-paper small{display:block;font:500 9px/1.2 var(--body);letter-spacing:.06em;text-transform:uppercase;color:#8A8B86;margin-top:9px}
+.st-paper mark{--mk:#FFE08A;background:transparent;color:inherit;border-radius:3px;padding:1px 4px;margin-left:-4px}
+.st-paper mark.who{--mk:#DCD3F6}
+.st-paper .rule{height:1px;background:#E4E1D8;margin:12px 0 8px}
+.st-paper .dim{color:#9A9B96;white-space:nowrap}
+.mw-tr .soon{color:#B26A00;font-weight:600}
+.st-rem.warn{background:#FFF5D9;box-shadow:0 12px 28px rgba(0,0,0,.24),inset 0 0 0 1.5px #E9BE55}
+.st-rem.warn .cal{border-color:#E9BE55}
+.st-rem.warn strong{color:#6B4100}
+.st-rem.warn strong svg{width:14px;height:14px;vertical-align:-2px;margin-right:5px;fill:#D9860B;stroke:none}
+.st-rem.warn strong svg .x{fill:none;stroke:#fff;stroke-width:1.4;stroke-linecap:round}
+.st-rem.warn span{color:#7A5A1E}
+/* the three sample documents: an ID page, a lease page and an insurance declaration. All fictional. */
+.st-paper.id{inset:auto 0;top:50%;height:178px;margin-top:-89px;padding:0;border-radius:12px;font:500 10.5px/1.35 var(--mono);color:#1F2E38;
+  background:repeating-radial-gradient(circle at 88% 125%,rgba(47,110,125,.08) 0 1px,transparent 1px 7px),linear-gradient(135deg,#F7FAF8,#E6EFF2)}
+.id-hd{display:flex;justify-content:space-between;align-items:center;height:26px;padding:0 12px;background:#2F4E63;color:#fff;font:600 8.5px/1 var(--body);letter-spacing:.12em;text-transform:uppercase}
+.id-bd{display:flex;gap:11px;padding:10px 12px 0}
+.id-ph{width:58px;height:74px;flex:none;border-radius:5px;border:1px solid rgba(47,78,99,.3)}
+.id-f{min-width:0}
+.st-paper.id small{margin-top:0;font-size:7.5px;color:#6E7F88}
+.id-row{display:flex;gap:12px;margin-top:5px;white-space:nowrap;overflow:hidden}
+.id-row>div{flex:none}
+.st-papers{container-type:inline-size}
+@container (max-width:250px){.id-row .opt{display:none}}
+.st-paper.id mark.who{display:inline-block;line-height:1.3}
+.id-mrz{position:absolute;left:12px;right:12px;bottom:9px;font:500 8.5px/1.5 var(--mono);letter-spacing:.05em;color:#7B8A91;white-space:nowrap;overflow:hidden}
+.st-paper.doc{font:400 10.5px/1.5 Georgia,"Iowan Old Style","Times New Roman",serif;color:#2A2A27;padding:18px 18px 0}
+.st-paper.doc h4{margin:0;text-align:center;font:700 10.5px/1.3 Georgia,"Times New Roman",serif;letter-spacing:.07em;color:#1F1F1D}
+.doc-sub{text-align:center;font-size:8.5px;color:#8A8B86;margin-top:2px;padding-bottom:7px;border-bottom:1px solid #D9D6CC}
+.st-paper.doc p{margin:7px 0 0}
+.st-paper.doc mark,.st-paper.pol mark{margin-left:-3px;padding:1px 3px}
+.doc-sig{position:absolute;left:18px;right:18px;bottom:14px;display:flex;gap:16px}
+.doc-sig div{flex:1;border-top:1px solid #8A8B86;position:relative;padding-top:3px;font-size:8px;color:#8A8B86}
+.doc-sig svg{position:absolute;left:2px;bottom:100%;width:80px;height:20px;fill:none;stroke:#27408B;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}
+.doc-sig span{display:block}
+.st-paper.pol{padding:0;font:500 10.5px/1.35 var(--body);color:#1F2A3A}
+.pol-hd{display:flex;align-items:center;gap:9px;padding:14px 16px 10px;border-bottom:2px solid #1E5A8A}
+.pol-hd svg{width:24px;height:24px;flex:none}
+.pol-hd b{display:block;font:700 12px/1.2 var(--body);color:#173F61}
+.pol-hd span{display:block;font-size:8.5px;letter-spacing:.06em;text-transform:uppercase;color:#6E7F88}
+.pol-g{display:grid;grid-template-columns:1fr 1fr;gap:8px 12px;padding:11px 16px 9px;white-space:nowrap}
+.pol-g .w{grid-column:1/-1}
+.pol-g i{font:500 10.5px/1.35 var(--mono);font-style:normal}
+.st-paper.pol small{margin-top:0;font-size:7.5px;margin-bottom:1px}
+.pol-t{margin:0 16px;border-top:1px solid #E1E4E8;font-size:9.5px;color:#5A6672}
+.pol-t div{display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px dotted #D3D8DE}
+.st-beam{position:absolute;left:0;right:0;top:0;height:40px;background:linear-gradient(180deg,rgba(47,62,70,0),rgba(47,62,70,.14));border-bottom:2px solid #2F3E46;opacity:0}
+/* middle card: a small copy of the app window, in the app's own colours and font */
+.mw{width:100%;max-width:480px;height:286px;background:#F7F7F5;color:#1F1F1D;border-radius:12px;box-shadow:0 18px 40px rgba(0,0,0,.3);font:13px/1.3 "Geist","Helvetica Neue",Arial,sans-serif;display:flex;flex-direction:column;overflow:hidden;text-align:left}
+.mw-top{height:40px;flex:none;display:flex;align-items:center;gap:7px;padding:0 10px 0 12px;min-width:0}
+.mw-lights{display:flex;gap:5px}.mw-lights i{width:9px;height:9px;border-radius:50%;display:block}
+.mw-top b{font-size:12px;font-weight:600}
+.mw-seg{display:flex;gap:1px;margin:0 auto;padding:2px;background:#E9E8E4;border-radius:7px;font-size:10.5px;font-weight:500;color:#4A4945}
+.mw-seg span{padding:4px 6px;border-radius:5px;white-space:nowrap}
+.mw-seg span.on{background:#fff;color:#1F1F1D;font-weight:600;box-shadow:0 1px 2px rgba(0,0,0,.14)}
+.mw-top em{font:600 10.5px/1 inherit;font-style:normal;background:#0B63F6;color:#fff;border-radius:6px;padding:6px 8px;white-space:nowrap;flex:none}
+.mw-tabs{height:30px;flex:none;display:flex;align-items:flex-end;gap:3px;padding:0 12px;overflow:hidden}
+.mw-tabs span{display:flex;align-items:center;gap:6px;height:24px;padding:0 9px;border-radius:7px 7px 0 0;background:#EDECE8;color:#4A4945;font-size:11.5px;font-weight:500;white-space:nowrap}
+.mw-tabs svg{width:12px;height:12px;fill:var(--c);flex:none}
+.mw-tabs span.on{height:30px;background:#fff;color:#1F1F1D;font-weight:600;border:1px solid #E4E3DF;border-bottom:0}
+.mw-tabs span.t{transform:translateY(105%)}
+.mw-sheet{flex:1;margin:0 12px 12px;background:#fff;border:1px solid #E4E3DF;border-radius:0 9px 9px 9px;display:flex;flex-direction:column;min-height:0}
+.mw-th,.mw-tr{display:grid;grid-template-columns:16px minmax(0,1.15fr) minmax(0,.85fr) minmax(0,1fr) 74px;gap:8px;align-items:center;padding:0 12px}
+.mw-th{height:28px;font-size:10.5px;font-weight:500;color:#6B6A66;border-bottom:1px solid #EDECE9}
+.mw-tr{height:36px;border-bottom:1px solid #F3F2EF;font-size:12px;opacity:0}
+.mw-tr b{font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mw-tr span{color:#1F1F1D;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mw-ic{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.mw-tfoot{margin-top:auto;height:28px;display:flex;align-items:center;padding:0 12px;font-size:10.5px;color:#6B6A66}
+@media (max-width:420px){.mw-seg{display:none}.mw-top em{margin-left:auto}.mw-th,.mw-tr{grid-template-columns:16px minmax(0,1.4fr) minmax(0,1fr) 74px}.mw-th span:nth-child(3),.mw-tr span:nth-of-type(1){display:none}}
+.st-cal{width:min(100%,290px);display:flex;flex-direction:column;gap:10px;min-height:286px;justify-content:center}
+.st-rem{display:flex;gap:12px;align-items:center;background:#FDFCF9;color:#1C1B18;border-radius:12px;padding:11px 13px;box-shadow:0 12px 28px rgba(0,0,0,.24);opacity:0}
+.st-rem .cal{width:42px;height:44px;flex:none;border-radius:9px;background:#fff;border:1px solid #E4E1D8;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1}
+.st-rem .cal small{font:700 8.5px/1 var(--body);letter-spacing:.06em;color:#C0281F;text-transform:uppercase}
+.st-rem .cal b{font:600 19px/1.1 var(--body)}
+.st-rem div:last-child{min-width:0}
+.st-rem strong{display:block;font:600 14px/1.3 var(--body)}
+.st-rem span{display:block;font:400 12.5px/1.35 var(--body);color:#62645F}
+@media (max-width:760px){.story{grid-template-columns:minmax(0,1fr);gap:14px}.st-arrow{transform:rotate(90deg);justify-self:center;margin:0}.st-papers{height:250px}.st-cal{min-height:0}.st-paper{padding:16px}}
+/* Hero story: one step at a time. Without script (or with reduced motion) it is a still picture of the finished state. */
+.story:not(.js) .st-paper.p1{opacity:1}.story:not(.js) .st-paper mark{background:var(--mk)}.story:not(.js) .mw-tabs span.t{transform:none}.story:not(.js) .mw-tr,.story:not(.js) .st-rem{opacity:1}
+.story.js .st-paper{transform:translateY(-26px) rotate(-5deg);transition:opacity .45s ease-out,transform .6s cubic-bezier(.3,.7,.2,1)}
+.story.js .st-paper.show{opacity:1;transform:none}
+.story.js .st-paper.gone{opacity:0;transform:translate(34%,6%) scale(.55)}
+.story.js .st-paper mark{transition:background-color .35s}
+.story.js .st-paper.read mark{background:var(--mk)}
+.story.js .st-paper.read mark:not(.who){transition-delay:.55s}
+.story.js .st-paper.scan .st-beam{animation:st-beam 1.1s linear}
+@keyframes st-beam{0%{opacity:1;transform:translateY(-40px)}92%{opacity:1}100%{opacity:0;transform:translateY(250px)}}
+.story.js .mw-tabs span.t{transition:transform .55s cubic-bezier(.2,.8,.2,1)}
+.story.js .mw-tabs span.t.up{transform:none}
+.story.js .mw-tr{transform:translateY(6px);transition:opacity .4s ease-out,transform .4s ease-out}
+.story.js .mw-tr.in{opacity:1;transform:none}
+.story.js .st-rem{transform:translateY(12px) scale(.96);transition:opacity .45s ease-out,transform .45s ease-out}
+.story.js .st-rem.in{opacity:1;transform:none}
+.story.js .st-papers,.story.js .mw,.story.js .st-cal,.story.js .st-cap,.story.js .st-cap b{transition:opacity .5s,background-color .5s,color .5s}
+.story.js[data-at="1"] .mw,.story.js[data-at="1"] .st-cal,.story.js[data-at="2"] .st-papers,.story.js[data-at="2"] .st-cal,.story.js[data-at="3"] .st-papers,.story.js[data-at="3"] .mw{opacity:.32}
+.story.js[data-step] .st-cap{opacity:.5}
+.story.js[data-step="1"] .c1 .st-cap,.story.js[data-step="2"] .c2 .st-cap,.story.js[data-step="3"] .c3 .st-cap{opacity:1;color:var(--on-stage)}
+.story.js[data-step="1"] .c1 .st-cap b,.story.js[data-step="2"] .c2 .st-cap b,.story.js[data-step="3"] .c3 .st-cap b{background:var(--on-stage);color:var(--stage);border-color:var(--on-stage)}
+
 .shot:has(.d-win.dark){background:#191919}
 /* the hero window dissolves into the stage so the first look is the top of the list, not all of it */
 .hero .shot{-webkit-mask-image:linear-gradient(to bottom,#000 38%,transparent 92%);mask-image:linear-gradient(to bottom,#000 38%,transparent 92%);box-shadow:none;border-bottom:0;margin-bottom:calc(-1*clamp(20px,4.4vw,60px) - 4%)}
@@ -542,6 +653,113 @@ width:1280px;height:800px;box-sizing:border-box;position:relative;overflow:hidde
 .d-then{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:8px;font-size:13px;line-height:1.5;color:#4A4945}
 .d-file,.d-btn{display:inline-flex;align-items:center;justify-content:center}
 
+/* onboarding: a rail with the three steps on the left, one question per screen on the right */
+.o-win{display:grid;grid-template-columns:316px minmax(0,1fr);background:var(--paper)}
+.o-rail{background:var(--ground);border-right:1px solid var(--edge);padding:20px 28px 28px 18px;display:flex;flex-direction:column}
+.o-brand{display:flex;align-items:center;gap:12px;margin:44px 0 0 12px}
+.o-logo{width:44px;height:44px;flex:none}
+.o-brand b{font-size:22px;font-weight:700;letter-spacing:-.02em}
+.o-win .o-hello{margin:14px 0 0 12px;font-size:14px;line-height:1.5;color:var(--mut)}
+.o-steps{list-style:none;margin:36px 0 0 12px;padding:0;display:flex;flex-direction:column;gap:6px}
+.o-steps li{display:flex;gap:12px;align-items:center;padding:10px 12px;border-radius:10px;margin-left:-12px;color:var(--mut)}
+.o-steps li>i{width:26px;height:26px;flex:none;border-radius:50%;border:1.5px solid #C9C8C3;display:grid;place-items:center;font:600 12.5px/1 var(--mono);font-style:normal}
+.o-steps b{display:block;font-size:14px;font-weight:600}
+.o-steps span{display:block;font-size:12.5px;padding-top:2px}
+.o-steps li.on{background:var(--paper);box-shadow:0 0 0 1px var(--edge),0 1px 2px rgba(0,0,0,.04);color:var(--ink)}
+.o-steps li.on>i{background:var(--blue);border-color:var(--blue);color:#fff}
+.o-steps li.on span{color:var(--mut)}
+.o-steps li.done{color:var(--ink)}
+.o-steps li.done>i{background:#E3F1E8;border-color:#E3F1E8;color:#2F7D4F}
+.o-steps li.done .d-ic{width:14px;height:14px;stroke-width:2}
+.o-win .o-private{margin:auto 0 0 12px;font-size:12.5px;line-height:1.5;color:var(--mut);padding-top:16px;border-top:1px solid var(--edge)}
+.o-main{padding:64px 56px 0;display:flex;flex-direction:column;min-width:0}
+.o-win .o-kicker{font:500 12px/1 var(--mono);color:var(--mut)}
+.o-win .o-h{font-size:30px;font-weight:600;letter-spacing:-.025em;line-height:1.15;margin-top:12px}
+.o-win .o-sub{font-size:15px;line-height:1.55;color:var(--mut);margin-top:10px;max-width:640px}
+.o-foot{margin-top:auto;height:76px;display:flex;align-items:center;gap:12px;border-top:1px solid var(--rule)}
+.o-foot .d-btn{flex:none;height:36px;padding:0 18px;font-size:14px}
+.o-foot .o-next{margin-left:auto;min-width:120px}
+.o-win .o-skip{font-size:13px;color:var(--mut)}
+/* step 1 */
+.o-groups{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:26px}
+.o-group h2{margin:0 0 10px;display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--mut)}
+.o-group h2 .d-ti{fill:#9B9A96}
+.o-item,.o-add{display:flex;align-items:center;gap:10px;height:40px;padding:0 10px 0 12px;border:1px solid var(--edge);border-radius:9px;margin-bottom:8px;font-size:14px;font-weight:500;background:var(--paper)}
+.o-item span{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.o-item small{font-size:12px;color:var(--mut);font-weight:400}
+.o-item button{border:0;background:none;color:#A3A29D;font-size:18px;line-height:1;padding:2px 4px}
+.o-add{border-style:dashed;color:var(--mut);font-weight:400}
+.o-add .d-ic{width:15px;height:15px}
+.o-add.on{border-style:solid;border-color:var(--blue);box-shadow:0 0 0 3px #DCE8FF;color:#A3A29D}
+.o-add.on span i{display:inline-block;width:1.5px;height:17px;background:var(--ink);vertical-align:-3px;margin-right:3px}
+.o-preview{margin:22px 0 28px;flex:1;display:flex;flex-direction:column;background:var(--ground);border:1px solid var(--edge);border-radius:12px;padding:14px 0 0;overflow:hidden}
+.o-win .o-preview>p{font-size:12px;font-weight:500;color:var(--mut);padding:0 20px 2px}
+.o-preview .d-tabs{padding:0 20px;height:44px}
+.o-sheet{flex:1;display:grid;place-items:center;font-size:13px;color:var(--mut);margin:0 20px;background:var(--paper);border:1px solid var(--edge);border-bottom:0;border-radius:0 10px 0 0}
+/* steps 2 and 3 */
+.o-two{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:28px;margin-top:26px}
+.o-col{min-width:0}
+.o-drop{height:186px;border:1.5px dashed #C4C3BE;border-radius:14px;background:var(--ground);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;text-align:center}
+.o-drop svg{width:40px;height:40px;fill:none;stroke:var(--blue);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;margin-bottom:4px}
+.o-drop b{font-size:15px;font-weight:600}
+.o-drop>span{font-size:13px;color:var(--mut)}
+.o-drop .o-choose{flex:none;margin-top:10px;padding:0 14px;color:var(--ink)}
+.o-win .o-label{font-size:12.5px;font-weight:600;color:var(--mut);margin:20px 0 8px}
+.o-watch,.o-opt{display:flex;gap:12px;align-items:flex-start;padding:10px 12px;border:1px solid var(--edge);border-radius:10px;margin-bottom:8px}
+.o-watch>i{width:34px;height:20px;flex:none;border-radius:10px;background:#D6D5D0;position:relative;margin-top:1px}
+.o-watch>i::after{content:"";position:absolute;left:2px;top:2px;width:16px;height:16px;border-radius:50%;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.2)}
+.o-watch.on>i{background:var(--blue)}
+.o-watch.on>i::after{left:16px}
+.o-watch b,.o-opt b{display:block;font-size:14px;font-weight:600}
+.o-watch span,.o-opt span{display:block;font-size:12.5px;color:var(--mut);padding-top:2px;line-height:1.45}
+.o-prog>div:first-child{display:flex;justify-content:space-between;align-items:baseline;font-size:14px}
+.o-prog span{font:500 12px/1 var(--mono);color:var(--mut)}
+.o-bar{height:6px;border-radius:3px;background:#E9E8E4;margin-top:10px;overflow:hidden}
+.o-bar i{display:block;height:100%;border-radius:3px;background:var(--blue)}
+.o-list{margin-top:14px;border:1px solid var(--edge);border-radius:12px;overflow:hidden}
+.o-read{display:grid;grid-template-columns:18px minmax(0,1fr) 88px 86px 16px;gap:10px;align-items:center;height:38px;padding:0 12px;border-bottom:1px solid var(--rule);font-size:13px}
+.o-read:last-child{border-bottom:0}
+.o-read b{font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.o-read span{color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.o-read>.d-ic:last-child{color:#2F7D4F;stroke-width:2;width:15px;height:15px}
+.o-read.busy{background:var(--ground)}
+.o-read.busy span:last-of-type{color:var(--blue)}
+.o-read.busy>.d-ic:last-child{visibility:hidden}
+.o-win .o-fine{font-size:12.5px;color:var(--mut);margin-top:12px;line-height:1.5}
+.o-opt>i{width:18px;height:18px;flex:none;border-radius:50%;border:1.5px solid #B4B3AE;margin-top:1px}
+.o-opt.on{border-color:var(--blue);box-shadow:0 0 0 3px #DCE8FF}
+.o-opt.on>i{border:5.5px solid var(--blue)}
+.o-opt span.p{font-family:var(--mono);font-size:12px}
+.o-opt em{font-style:normal;font-size:11.5px;font-weight:600;color:#0B4FC4;background:#E8F0FF;border-radius:5px;padding:2px 6px;margin-left:6px}
+.o-finder{border:1px solid var(--edge);border-radius:12px;overflow:hidden;background:var(--paper)}
+.o-fbar{display:flex;align-items:center;gap:8px;height:38px;padding:0 14px;background:var(--ground);border-bottom:1px solid var(--edge);font-size:13px}
+.o-fbar .d-ti{fill:#5E9BE0}
+.o-fbar span{margin-left:auto;font-size:12px;color:var(--mut)}
+.o-tree{list-style:none;margin:0;padding:8px 0}
+.o-tree li{display:flex;align-items:center;gap:9px;height:30px;padding:0 14px;font-size:13px;font-weight:500}
+.o-tree li small{margin-left:auto;font:500 11.5px/1 var(--mono);color:var(--mut)}
+.o-tree li.f{padding-left:38px;font-weight:400;color:var(--mut);font-family:var(--mono);font-size:12px;height:26px}
+.o-tree li.f .d-ic{width:14px;height:14px}
+.o-col .d-seg span{white-space:nowrap}
+.o-watchadd{height:44px;margin-bottom:0}
+.o-watchadd+.o-fine{margin-top:10px}
+/* onboarding step 1: a free-form column, with a kind picker under the field being typed in */
+.o-add.on{color:var(--ink);font-weight:500}
+.o-add.on span{white-space:nowrap;overflow:hidden}
+.o-add.on span i{margin:0 0 0 1px}
+.o-kinds{display:flex;gap:5px;margin-bottom:8px}
+.o-kinds span{flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;padding:8px 0 7px;border:1px solid var(--edge);border-radius:8px;font-size:11.5px;font-weight:500;color:var(--mut)}
+.o-kinds .d-ti{fill:#9B9A96;width:16px;height:16px}
+.o-kinds span.on{border-color:var(--ink);box-shadow:0 0 0 1px var(--ink);color:var(--ink)}
+.o-kinds span.on .d-ti{fill:var(--c)}
+.o-win .o-hint{font-size:12px;line-height:1.45;color:var(--mut)}
+.o-preview .d-tabs{overflow:hidden}
+.o-win .d-tab.o-new{border:1px dashed #B4B3AE;border-bottom:0;background:transparent}
+.o-win .o-preview .d-tab{white-space:nowrap;flex:none;padding:0 9px;gap:6px;font-size:13px}
+.o-preview .d-tabs{gap:3px;padding:0 12px}
+.o-preview .o-sheet{margin:0 12px}
+.o-win .o-preview>p{padding-left:14px}
+
 </style>
 </head>
 <body>
@@ -565,79 +783,54 @@ width:1280px;height:800px;box-sizing:border-box;position:relative;overflow:hidde
   <p class="fine">Free for 14 days. Then US$39, once. Nothing leaves your Mac.</p>
   <div class="stage">
   <svg class="stitch" aria-hidden="true"><filter id="stitch-wobble" x="-2%" y="-2%" width="104%" height="104%"><feTurbulence type="fractalNoise" baseFrequency=".035" numOctaves="2" seed="4"/><feDisplacementMap in="SourceGraphic" scale="1.6"/></filter><rect width="100%" height="100%" rx="22" filter="url(#stitch-wobble)"/></svg>
-  <div class="heroshot">
-    <div class="filetabs" aria-hidden="true"><span>Identity</span><span>Leases</span><span>Insurance</span><span>Tax</span><span>Income</span><span>Vehicle</span><span>Bills</span></div>
-    <div class="shot" data-crop-sm="28,60,600,440" role="img" aria-label="The Kept app: a filing drawer with a tab for each family member, home and car, and a table of documents sorted by expiry. An expired health card is in red and two documents due soon are in amber."><div class="shot-in" aria-hidden="true"><div class="d-win">
-<div class="d-top">
-<div class="d-lights"><i style="background:#FF5F57"></i><i style="background:#FEBC2E"></i><i style="background:#28C840"></i></div>
-<div class="d-plate">Kept</div>
-<nav class="d-links" aria-label="Sections"><a class="on"><svg class="d-ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h5.5L12 5v8.5H4zM9.5 2.5V5H12M6 8h4M6 10.5h3"/></svg>Documents</a><a ><svg class="d-ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 9.5l2-6h7l2 6v4h-11zM2.5 9.5h3.2l.8 1.5h3l.8-1.5h3.2"/></svg>To review <b>2</b></a><a ><svg class="d-ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4.5h4l1.2 1.5h5.8v7h-11zM6 9.5l1.5 1.5L10 8.2"/></svg>Packets <b>1</b></a></nav>
-<div class="d-find"><svg class="d-ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M7 12A5 5 0 107 2a5 5 0 000 10zM11 11l3 3"/></svg><span>Find a document or a number</span></div>
-<span class="d-file">File a document</span>
-</div>
-<div class="d-tabs">
-<a class="d-tab on" style="--c:#8F8E89"><svg class="d-ti" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M1.8 3.5h4.6l1.3 1.6h6.5V13H1.8z"/></svg>Everyone <small>132</small></a>
-<a class="d-tab" style="--c:#D44C47"><svg class="d-ti" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M8 8a3 3 0 100-6 3 3 0 000 6zM2.5 14c0-3 2.5-4.8 5.5-4.8s5.5 1.8 5.5 4.8z"/></svg>Claire <small>31</small></a>
-<a class="d-tab" style="--c:#337EA9"><svg class="d-ti" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M8 8a3 3 0 100-6 3 3 0 000 6zM2.5 14c0-3 2.5-4.8 5.5-4.8s5.5 1.8 5.5 4.8z"/></svg>Daniel <small>34</small></a>
-<a class="d-tab" style="--c:#CB912F"><svg class="d-ti" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.8L1.8 7.2V14h4.4v-4h3.6v4h4.4V7.2z"/></svg>14 Alder St <small>38</small></a>
-<a class="d-tab" style="--c:#9F6B53"><svg class="d-ti" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.8L1.8 7.2V14h4.4v-4h3.6v4h4.4V7.2z"/></svg>Unit 5 <small>17</small></a>
-<a class="d-tab" style="--c:#787774"><svg class="d-ti" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M3.6 3.5h8.8l1.6 4.2V13h-2v-1.5H4V13H2V7.7zM4.6 5l-.9 2.5h8.6L11.4 5z"/></svg>Honda CR-V <small>12</small></a>
-<a class="d-tab add" aria-label="New tab"><svg class="d-ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M3 8h10"/></svg></a>
-</div>
-<div class="d-sheet files">
-<i class="d-hole" style="top:210px"></i><i class="d-hole" style="top:470px"></i>
-<div class="d-filters">
-<span class="d-chip on">All <small>132</small></span>
-<span class="d-chip need">Needs you <small>3</small></span>
-<span class="d-chip"><i style="background:#7A66D6"></i>Identity <small>10</small></span>
-<span class="d-chip"><i style="background:#2A9483"></i>Leases <small>6</small></span>
-<span class="d-chip"><i style="background:#3F7BE0"></i>Insurance <small>11</small></span>
-<span class="d-chip"><i style="background:#84932F"></i>Tax <small>34</small></span>
-<span class="d-chip"><i style="background:#3BA36A"></i>Income <small>29</small></span>
-<span class="d-chip"><i style="background:#6C8098"></i>Vehicle <small>9</small></span>
-<span class="d-chip"><i style="background:#C75C88"></i>Bills <small>33</small></span>
-</div>
-<div class="d-split">
-<div class="d-table">
-<div class="d-th"><span>Name</span><span>Category</span><span>Belongs to</span><span>Expires or dated ↑</span></div>
-<div class="d-tr "><div><svg class="d-ic d-i1" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4h11v8h-11zM6.6 7.1a1.1 1.1 0 11-2.2 0 1.1 1.1 0 012.2 0zM4.2 10.2c.2-.8.7-1.2 1.3-1.2s1.1.4 1.3 1.2M9.2 7h2.6M9.2 9.4h2.6"/></svg><span>Health card</span></div><span>Identity</span><span class="">Claire</span><span class="d-red">Expired 4 Nov 2026</span></div>
-<div class="d-tr "><div><svg class="d-ic d-i3" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5l4.5 1.6v3.4c0 2.7-1.8 4.8-4.5 6-2.7-1.2-4.5-3.3-4.5-6V4.1zM6.2 8l1.3 1.3 2.4-2.6"/></svg><span>Car insurance policy</span></div><span>Insurance</span><span class="">Honda CR-V</span><span class="d-amb">30 Nov 2026</span></div>
-<div class="d-tr sel"><div><svg class="d-ic d-i1" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4h11v8h-11zM6.6 7.1a1.1 1.1 0 11-2.2 0 1.1 1.1 0 012.2 0zM4.2 10.2c.2-.8.7-1.2 1.3-1.2s1.1.4 1.3 1.2M9.2 7h2.6M9.2 9.4h2.6"/></svg><span>Driver's licence</span></div><span>Identity</span><span class="">Daniel</span><span class="d-amb">2 Dec 2026</span></div>
-<div class="d-tr "><div><svg class="d-ic d-i6" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 11V8.5l1.5-4h8l1.5 4V11zM4.5 11v1.5M11.5 11v1.5M4.8 8.5v.01M11.2 8.5v.01"/></svg><span>Vehicle registration</span></div><span>Vehicle</span><span class="">Honda CR-V</span><span class="">9 Jan 2027</span></div>
-<div class="d-tr "><div><svg class="d-ic d-i2" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h5.5L12 5v8.5H4zM9.5 2.5V5H12M5.8 11c.7-1.4 1.2-1.4 1.6-.2.3 1 .8 1 2.6-.6"/></svg><span>Lease, 2026 to 2027</span></div><span>Lease</span><span class="">Unit 5, 220 Wren Ave</span><span class="">31 Jan 2027</span></div>
-<div class="d-tr "><div><svg class="d-ic d-i3" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5l4.5 1.6v3.4c0 2.7-1.8 4.8-4.5 6-2.7-1.2-4.5-3.3-4.5-6V4.1zM6.2 8l1.3 1.3 2.4-2.6"/></svg><span>Home insurance policy</span></div><span>Insurance</span><span class="">14 Alder Street</span><span class="">14 Feb 2027</span></div>
-<div class="d-tr "><div><svg class="d-ic d-i4" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h8v11l-1.3-1-1.4 1-1.3-1-1.3 1-1.4-1-1.3 1zM6.3 9.7l3.4-3.4M6.5 6.5v.01M9.5 9.5v.01"/></svg><span>Property tax bill, 2026</span></div><span>Tax</span><span class="">Unit 5, 220 Wren Ave</span><span class="">1 Mar 2027</span></div>
-<div class="d-tr "><div><svg class="d-ic d-i1" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h8v11H4zM10 7a2 2 0 11-4 0 2 2 0 014 0zM6.5 11.2h3"/></svg><span>Passport</span></div><span>Identity</span><span class="">Claire</span><span class="">12 Mar 2027</span></div>
-<div class="d-tr "><div><svg class="d-ic d-i3" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5l4.5 1.6v3.4c0 2.7-1.8 4.8-4.5 6-2.7-1.2-4.5-3.3-4.5-6V4.1zM6.2 8l1.3 1.3 2.4-2.6"/></svg><span>Landlord insurance policy</span></div><span>Insurance</span><span class="">Unit 5, 220 Wren Ave</span><span class="">30 Jun 2027</span></div>
-<div class="d-tr "><div><svg class="d-ic d-i1" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4h11v8h-11zM6.6 7.1a1.1 1.1 0 11-2.2 0 1.1 1.1 0 012.2 0zM4.2 10.2c.2-.8.7-1.2 1.3-1.2s1.1.4 1.3 1.2M9.2 7h2.6M9.2 9.4h2.6"/></svg><span>Driver's licence</span></div><span>Identity</span><span class="">Claire</span><span class="">12 Apr 2029</span></div>
-<div class="d-tr "><div><svg class="d-ic d-i1" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h8v11H4zM10 7a2 2 0 11-4 0 2 2 0 014 0zM6.5 11.2h3"/></svg><span>Passport</span></div><span>Identity</span><span class="">Daniel</span><span class="">20 Sep 2031</span></div>
-<div class="d-tr old"><div><svg class="d-ic d-i5" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4.5h11v7h-11zM9.5 8a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM4.5 6.5v.01M11.5 9.5v.01"/></svg><span>Pay stub, October</span></div><span>Income</span><span class="">Claire</span><span class="">31 Oct 2026</span></div>
-<div class="d-tr old"><div><svg class="d-ic d-i7" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h8v11l-1.3-1-1.4 1-1.3-1-1.3 1-1.4-1-1.3 1zM8.6 4.8L6.6 8h2.8l-2 3.2"/></svg><span>Hydro bill, October</span></div><span>Bills</span><span class="">14 Alder Street</span><span class="">28 Oct 2026</span></div>
-<div class="d-tr old"><div><svg class="d-ic d-i7" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h8v11l-1.3-1-1.4 1-1.3-1-1.3 1-1.4-1-1.3 1zM8 5l1.7 2.6a2 2 0 11-3.4 0z"/></svg><span>Water bill, October</span></div><span>Bills</span><span class="">Unit 5, 220 Wren Ave</span><span class="">28 Oct 2026</span></div>
-<div class="d-tr old"><div><svg class="d-ic d-i4" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h8v11l-1.3-1-1.4 1-1.3-1-1.3 1-1.4-1-1.3 1zM6.3 9.7l3.4-3.4M6.5 6.5v.01M9.5 9.5v.01"/></svg><span>Notice of assessment, 2025</span></div><span>Tax</span><span class="">Claire</span><span class="">2 Jun 2026</span></div>
-<div class="d-tr old"><div><svg class="d-ic d-i4" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h8v11l-1.3-1-1.4 1-1.3-1-1.3 1-1.4-1-1.3 1zM6.3 9.7l3.4-3.4M6.5 6.5v.01M9.5 9.5v.01"/></svg><span>Notice of assessment, 2025</span></div><span>Tax</span><span class="">Daniel</span><span class="">28 May 2026</span></div>
-<div class="d-tr old"><div><svg class="d-ic d-i4" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h8v11l-1.3-1-1.4 1-1.3-1-1.3 1-1.4-1-1.3 1zM6.3 9.7l3.4-3.4M6.5 6.5v.01M9.5 9.5v.01"/></svg><span>T4 slip, 2025</span></div><span>Tax</span><span class="">Claire</span><span class="">Tax year 2025</span></div>
-<div class="d-tfoot">Showing 17 of 132, soonest first</div>
-</div>
-<aside class="d-insp">
-<div class="d-prev">
-<div class="d-prev-top"><span>Driver's licence</span><span>Class G</span></div>
-<div style="display:flex;gap:12px"><div class="d-face"></div><div style="display:flex;flex-direction:column;gap:6px"><div><small>Name</small><b>BENNETT, DANIEL J</b></div><div><small>Number</small><span class="n">B2917-40618-50322</span></div><div><small>Expires</small><b>2026/12/02</b></div></div></div>
-</div>
-<div><div class="d-ttl">Driver's licence</div><div class="d-amb" style="padding-top:3px">Expires in 15 days</div></div>
-<dl class="d-kv">
-<dt>Category</dt><dd>Identity</dd>
-<dt>Belongs to</dt><dd>Daniel</dd>
-<dt>Expires</dt><dd>2 December 2026</dd>
-<dt>Reminder</dt><dd>On the Family calendar</dd>
-<dt>Used in</dt><dd><a class="d-lnk">Mortgage application packet</a></dd>
-<dt>File</dt><dd style="color:#6B6A66">Daniel - Driver's licence - exp 2026-12-02.pdf</dd>
-</dl>
-<div class="d-btns"><span class="d-btn pri">Open</span><span class="d-btn">Show in Finder</span></div>
-</aside>
-</div>
-</div>
-</div></div></div>
+  <div class="story" role="img" aria-label="How Kept works, shown as a loop. A sample passport, a lease and a car insurance policy are dropped in one at a time. Kept reads the name and date on each, files it under a tab in a stitched pocket, and a renewal reminder appears on the calendar. The passport expires in 90 days, so its reminder is shown as a warning.">
+    <div class="st-col" aria-hidden="true">
+      <div class="st-papers">
+        <div class="st-paper p1 id"><div class="st-beam"></div>
+          <div class="id-hd"><span>Passport · Passeport</span><span>Utopia</span></div>
+          <div class="id-bd">
+            <svg class="id-ph" viewBox="0 0 58 74" aria-hidden="true"><rect width="58" height="74" fill="#BEBFC0"/><path d="M29 13C18 13 13 20 12.5 29c-.5 8-3.5 13-5 19-1.5 6 0 12 3.5 15h36c3.5-3 5-9 3.5-15-1.5-6-4.5-11-5-19C45 20 40 13 29 13z" fill="#5E6062"/><path d="M23.5 44h11v6c0 2 2 3 3.5 3L29 60l-9-7c1.5 0 3.5-1 3.5-3z" fill="#E6E6E6"/><path d="M0 74v-8c7-3 14-6.5 20-13l9 7 9-7c6 6.5 13 10 20 13v8z" fill="#F3F3F3"/><path d="M23.5 46.5c3 3 8 3 11 0v2.5c-3 2.5-8 2.5-11 0z" fill="#CECECE"/><ellipse cx="29" cy="34" rx="12" ry="14.5" fill="#EFEFEF"/><path d="M17 33c.5-11 5.5-14.5 12-15 6.5.5 11.5 4 12 15-2-6-5.5-9.5-12-11-6.5 1.5-10 5-12 11z" fill="#5E6062"/></svg>
+            <div class="id-f"><small>Surname / Given names</small><mark class="who">BENNETT<br>CLAIRE ANNE</mark>
+              <div class="id-row"><div><small>Passport no.</small>UT4829107</div><div class="opt"><small>Nationality</small>UTOPIAN</div></div>
+              <div class="id-row"><div><small>Date of expiry</small><mark id="st-exp">17 FEB 2027</mark></div><div class="opt"><small>Date of birth</small>14 MAR 1988</div></div>
+            </div>
+          </div>
+          <div class="id-mrz">P&lt;UTOBENNETT&lt;&lt;CLAIRE&lt;ANNE&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;<br>UT48291074UTO8803142F<span id="st-mrz">2702170</span>&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;06</div>
+        </div>
+        <div class="st-paper p2 doc"><div class="st-beam"></div>
+          <h4>Residential Tenancy Agreement</h4><div class="doc-sub">Standard lease · Page 1 of 6</div>
+          <p><b>1. Parties.</b> C. Bennett and D. Bennett (Landlord) and Rachel Osei (Tenant).</p>
+          <p><b>2. Rental unit.</b> <mark class="who">Unit 5, 220 Wren Avenue</mark></p>
+          <p><b>3. Term.</b> Begins 1 February 2027 and ends <mark>31 January 2028</mark>.</p>
+          <p><b>4. Rent.</b> $2,450, payable on the first day of each month.</p>
+          <div class="doc-sig"><div><svg viewBox="0 0 90 22" aria-hidden="true"><path d="M3 16c6-12 9-13 10-4s4 6 7-2 5-4 6 2 6 5 9-3 6 1 8 4 9-8 14-6-3 9 6 7 12-3 22-5"/></svg><span>Landlord</span></div><div><svg viewBox="0 0 90 22" aria-hidden="true"><path d="M4 14c3-9 8-11 9-3s-6 9-2 9 8-14 12-12 0 10 5 9 6-9 10-8 2 7 7 6 9-7 14-6 8 4 26 1"/></svg><span>Tenant</span></div></div>
+        </div>
+        <div class="st-paper p3 pol"><div class="st-beam"></div>
+          <div class="pol-hd"><svg viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="6" fill="#1E5A8A"/><path d="M6 15l6-7 6 7M9.5 15.5L12 12.5l2.5 3" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>Alderpoint Mutual</b><span>Automobile policy declaration</span></div></div>
+          <div class="pol-g">
+            <div><small>Policy number</small><i>AU-5520-918</i></div><div><small>Named insured</small>Claire Bennett</div>
+            <div class="w"><small>Vehicle</small><mark class="who">2022 Honda CR-V</mark></div>
+            <div><small>Effective</small>30 Nov 2026</div><div><small>Expires</small><mark>30 Nov 2027</mark></div>
+          </div>
+          <div class="pol-t"><div><span>Liability</span><span>$2,000,000</span></div><div><span>Collision</span><span>$1,000 deductible</span></div><div><span>Comprehensive</span><span>$500 deductible</span></div></div>
+        </div>
+      </div>
+      <p class="st-cap"><b>1</b>You drop a document in</p>
+    </div>
+    <div class="st-arrow" aria-hidden="true"><svg viewBox="0 0 28 28"><path d="M4 14h19M16 7l7 7-7 7"/></svg></div>
+    <div class="st-col" aria-hidden="true">
+      <div class="mw"><div class="mw-top"><div class="mw-lights"><i style="background:#FF5F57"></i><i style="background:#FEBC2E"></i><i style="background:#28C840"></i></div><b>Kept</b><div class="mw-seg"><span class="on">Documents</span><span>To review</span><span>Packets</span></div><em>File a document</em></div><div class="mw-tabs"><span class="on" style="--c:#8F8E89"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.8 3.5h4.6l1.3 1.6h6.5V13H1.8z"/></svg>Everyone</span><span class="t" style="--c:#D44C47"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 8a3 3 0 100-6 3 3 0 000 6zM2.5 14c0-3 2.5-4.8 5.5-4.8s5.5 1.8 5.5 4.8z"/></svg>Claire</span><span class="t" style="--c:#9F6B53"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 1.8L1.8 7.2V14h4.4v-4h3.6v4h4.4V7.2z"/></svg>Unit 5</span><span class="t" style="--c:#787774"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M3.6 3.5h8.8l1.6 4.2V13h-2v-1.5H4V13H2V7.7zM4.6 5l-.9 2.5h8.6L11.4 5z"/></svg>Honda CR-V</span></div><div class="mw-sheet"><div class="mw-th"><i></i><span>Name</span><span>Category</span><span>Belongs to</span><span>Expires</span></div><div class="mw-tr"><svg class="mw-ic" viewBox="0 0 16 16" style="color:#6A55CC"><path d="M4 2.5h8v11H4zM10 7a2 2 0 11-4 0 2 2 0 014 0zM6.5 11.2h3"/></svg><b>Passport</b><span>Identity</span><span>Claire</span><span class="soon" id="st-row">17 Feb 2027</span></div><div class="mw-tr"><svg class="mw-ic" viewBox="0 0 16 16" style="color:#1F8776"><path d="M4 2.5h5.5L12 5v8.5H4zM9.5 2.5V5H12M5.8 11c.7-1.4 1.2-1.4 1.6-.2.3 1 .8 1 2.6-.6"/></svg><b>Lease</b><span>Lease</span><span>Unit 5</span><span>31 Jan 2028</span></div><div class="mw-tr"><svg class="mw-ic" viewBox="0 0 16 16" style="color:#336FD6"><path d="M8 2.5l4.5 1.6v3.4c0 2.7-1.8 4.8-4.5 6-2.7-1.2-4.5-3.3-4.5-6V4.1zM6.2 8l1.3 1.3 2.4-2.6"/></svg><b>Car insurance</b><span>Insurance</span><span>Honda CR-V</span><span>30 Nov 2027</span></div><div class="mw-tfoot">Soonest first</div></div></div>
+      <p class="st-cap"><b>2</b>Kept reads it and files it</p>
+    </div>
+    <div class="st-arrow" aria-hidden="true"><svg viewBox="0 0 28 28"><path d="M4 14h19M16 7l7 7-7 7"/></svg></div>
+    <div class="st-col" aria-hidden="true">
+      <div class="st-cal">
+        <div class="st-rem warn"><div class="cal"><small id="st-mon">Feb</small><b id="st-day">17</b></div><div><strong><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.8l6.8 12H1.2z"/><path d="M8 6.5v3.5M8 12v.2" class="x"/></svg>Claire's passport expires in 90 days</strong><span id="st-remline">Renew now. On your calendar for 17 Feb 2027</span></div></div>
+        <div class="st-rem"><div class="cal"><small>Dec</small><b>2</b></div><div><strong>Lease renewal, Unit 5</strong><span>60 days before the lease ends</span></div></div>
+        <div class="st-rem"><div class="cal"><small>Oct</small><b>1</b></div><div><strong>Renew car insurance</strong><span>60 days before it expires</span></div></div>
+      </div>
+      <p class="st-cap"><b>3</b>Your calendar reminds you</p>
+    </div>
   </div>
   </div>
 </header>
@@ -1088,8 +1281,20 @@ width:1280px;height:800px;box-sizing:border-box;position:relative;overflow:hidde
   var D={
    passport:{text:'PASSPORT · PASSEPORT &nbsp; UTO<br>Surname / Given names<br><mark class="who">BENNETT, CLAIRE ANNE</mark><br>Passport no. UT4829107<br>Date of issue 03 NOV 2026<br>Date of expiry <mark>03 NOV 2036</mark><br>P&lt;UTOBENNETT&lt;&lt;CLAIRE&lt;ANNE&lt;&lt;&lt;&lt;&lt;&lt;',type:'Passport',who:'Claire',date:'Expires 3 Nov 2036',file:'Claire - Passport - exp 2036-11-03.pdf',mon:'Feb',day:'3',ev:"Renew Claire's passport",when:'3 Feb 2036, nine months before it expires'},
    lease:{text:'RESIDENTIAL TENANCY AGREEMENT<br>Rental unit: <mark class="who">Unit 5, 220 Wren Avenue</mark><br>Landlord: C. Bennett and D. Bennett<br>Tenant: Rachel Osei<br>Term begins 1 February 2027<br>Term ends <mark>31 January 2028</mark><br>Rent $2,450 payable monthly',type:'Residential lease',who:'Unit 5, 220 Wren Ave',date:'Ends 31 Jan 2028',file:'Unit 5 - Lease - ends 2028-01-31.pdf',mon:'Dec',day:'2',ev:'Lease renewal notice due',when:'2 Dec 2027, sixty days before the lease ends'},
-   auto:{text:'NORTHBRIDGE MUTUAL<br>Automobile policy declaration<br>Policy number AX-2291-7740<br>Named insured: Daniel Bennett<br>Vehicle: <mark class="who">2021 Honda CR-V</mark><br>Effective 30 NOV 2026<br>Expires <mark>30 NOV 2027</mark> 12:01 a.m.',type:'Auto insurance policy',who:'2021 CR-V, and Daniel',date:'Policy ends 30 Nov 2027',file:'CR-V - Auto insurance - ends 2027-11-30.pdf',mon:'Oct',day:'31',ev:'Auto insurance renews soon',when:'31 Oct 2027, thirty days before the policy ends'}
+   auto:{text:'ALDERPOINT MUTUAL<br>Automobile policy declaration<br>Policy number AX-2291-7740<br>Named insured: Daniel Bennett<br>Vehicle: <mark class="who">2021 Honda CR-V</mark><br>Effective 30 NOV 2026<br>Expires <mark>30 NOV 2027</mark> 12:01 a.m.',type:'Auto insurance policy',who:'2021 CR-V, and Daniel',date:'Policy ends 30 Nov 2027',file:'CR-V - Auto insurance - ends 2027-11-30.pdf',mon:'Oct',day:'31',ev:'Auto insurance renews soon',when:'31 Oct 2027, thirty days before the policy ends'}
   };
+  // The sample passport always expires 90 days from the day the page is viewed.
+  (function(){
+    var M=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],e=new Date();e.setHours(12,0,0,0);e.setDate(e.getDate()+90);
+    function p2(n){return (n<10?'0':'')+n}
+    var d=e.getDate(),m=e.getMonth(),y=e.getFullYear(),long=d+' '+M[m]+' '+y,caps=p2(d)+' '+M[m].toUpperCase()+' '+y,iso=y+'-'+p2(m+1)+'-'+p2(d);
+    var mrz=String(y).slice(2)+p2(m+1)+p2(d),w=[7,3,1],c=0;for(var i=0;i<6;i++)c+=(+mrz[i])*w[i%3];mrz+=c%10;
+    function put(id,v){var el=document.getElementById(id);if(el)el.textContent=v}
+    put('st-exp',caps);put('st-mrz',mrz);put('st-row',long);put('st-mon',M[m]);put('st-day',d);put('st-remline','Renew now. On your calendar for '+long);
+    var P=D.passport;
+    P.text=P.text.replace('Date of issue 03 NOV 2026','Date of issue '+p2(d)+' '+M[m].toUpperCase()+' '+(y-10)).replace('03 NOV 2036',caps);
+    P.date='Expires '+long+', in 90 days';P.file='Claire - Passport - exp '+iso+'.pdf';P.mon=M[m];P.day=String(d);P.ev="Claire's passport expires in 90 days";P.when='Renew now. On your calendar for '+long;
+  })();
   var paper=document.getElementById('paper');
   function set(id,v){document.getElementById(id).textContent=v}
   document.querySelectorAll('.pick').forEach(function(b){b.addEventListener('click',function(){
@@ -1101,5 +1306,39 @@ width:1280px;height:800px;box-sizing:border-box;position:relative;overflow:hidde
 })();
 </script>
 
+<script>
+/* Hero story: plays one step at a time. Drop, then read, then file, then remind; one document after another. */
+(function(){
+  var st=document.querySelector('.story'); if(!st||matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+  var cols=st.querySelectorAll('.st-col'); [].forEach.call(cols,function(c,i){c.classList.add('c'+(i+1))});
+  var papers=st.querySelectorAll('.st-paper'),tabs=st.querySelectorAll('.mw-tabs span.t'),rows=st.querySelectorAll('.mw-tr'),rems=st.querySelectorAll('.st-rem');
+  var timer=null,run=0,visible=false;
+  function at(a,step){st.setAttribute('data-at',a);st.setAttribute('data-step',step)}
+  function clear(){[papers,tabs,rows,rems].forEach(function(l){[].forEach.call(l,function(e){e.classList.remove('show','gone','scan','read','up','in')})})}
+  function play(){
+    var my=++run,q=[];
+    function then(ms,fn){q.push([ms,fn])}
+    for(var i=0;i<papers.length;i++)(function(i){
+      then(0,function(){at(1,1);papers[i].classList.remove('gone');papers[i].classList.add('show')});      // 1 drop
+      then(1500,function(){at(1,2);papers[i].classList.add('scan')});                                      // 2 read
+      then(1150,function(){papers[i].classList.add('read')});
+      then(1500,function(){at(2,2);papers[i].classList.remove('show');papers[i].classList.add('gone')});   // 2 file
+      then(550,function(){tabs[i]&&tabs[i].classList.add('up')});
+      then(650,function(){rows[i]&&rows[i].classList.add('in')});
+      then(1200,function(){at(3,3);rems[i]&&rems[i].classList.add('in')});                                 // 3 remind
+      then(1900,function(){});
+    })(i);
+    then(1600,function(){st.removeAttribute('data-at');st.removeAttribute('data-step')});
+    then(2200,function(){clear()});
+    then(900,function(){play()});
+    (function next(){ if(my!==run||!q.length)return; var s=q.shift(); timer=setTimeout(function(){ if(my!==run)return; s[1](); next() },s[0]) })();
+  }
+  function stop(){run++;clearTimeout(timer)}
+  st.classList.add('js');
+  function sync(){var on=visible&&!document.hidden; if(on&&!timer){clear();play()} else if(!on&&timer){stop();timer=null}}
+  if('IntersectionObserver' in window){new IntersectionObserver(function(es){visible=es[0].isIntersecting;sync()},{threshold:.15}).observe(st)}else{visible=true}
+  document.addEventListener('visibilitychange',sync);sync();
+})();
+</script>
 </body>
 </html>

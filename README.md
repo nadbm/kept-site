@@ -27,8 +27,8 @@ Top to bottom inside `<style>`:
    windows shown on the page. They are HTML mockups, not screenshots, and use
    their own tokens (Geist, blue accent) so they look like the app, not the site.
 
-Markup, in order: nav · hero (`.stage` holds the app window and the stitched
-border) · `#how` · `#try` (interactive demo) · `#tabs` · `#packets` ·
+Markup, in order: nav · hero (`.stage` holds the animated `.story` and the
+stitched border) · `#how` · `#try` (interactive demo) · `#tabs` · `#packets` ·
 `#features` · `#privacy` (`.band`) · `#compare` · `#why` · `#pricing` ·
 `#faq` · closing call to action · footer.
 
@@ -37,7 +37,23 @@ scales it to fit; `data-crop` / `data-crop-sm` ("x,y,w,h") crop it, the second
 on narrow screens.
 
 Scripts at the end: window scaling, scroll reveals, the dark-mode switch
-(remembers the choice in `localStorage` under `kept-theme`), and the demo.
+(remembers the choice in `localStorage` under `kept-theme`), the demo, and
+the hero animation.
+
+## The hero animation (`.story`)
+
+Three panels: sample documents (`.st-paper`), a small app window (`.mw`) and
+reminders (`.st-rem`). The last script plays one step at a time for each of
+three documents: drop, read (scan line, then the name and date highlight),
+file (tab rises, row appears), remind. `data-at` on `.story` says which panel
+is lit; `data-step` says which caption is lit. Timings are the numbers in the
+`then(ms, …)` calls. It pauses when off screen or in a background tab.
+Without script, or with `prefers-reduced-motion`, the `.story:not(.js)` rules
+show a still picture of the finished state.
+
+The sample passport always expires 90 days after the day the page is viewed.
+The demo script computes the date and writes it into the elements with ids
+starting `st-`, and into the passport sample of the `#try` demo.
 
 ## Hosting
 
