@@ -28,8 +28,8 @@ Top to bottom inside `<style>`:
    their own tokens (Geist, blue accent) so they look like the app, not the site.
 
 Markup, in order: nav · hero (`.stage` holds the animated `.story` and the
-stitched border) · `#how` · `#try` (interactive demo) · `#tabs` · `#packets` ·
-`#features` · `#privacy` (`.band`) · `#compare` · `#why` · `#pricing` ·
+stitched border) · `#try` (interactive demo) · `#tabs` · `#packets` ·
+`#features` · `#privacy` (`.band`, with the `.vault` line drawing) · `#why` · `#pricing` ·
 `#faq` · closing call to action · footer.
 
 Each app window is a `.shot` wrapping a fixed 1280×800 `.d-win`. A script
